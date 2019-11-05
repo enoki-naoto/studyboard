@@ -1,1 +1,23 @@
-hello world
+<div class="top-hero-wrapper text-center">
+  <div class="container top-hero-container">
+    <h1 class="text-white">学習掲示板　〜　あなたの勉強をサポート　〜</h1>
+    <h2 class="text-white">ここでは、あなた自身の学習計画の作成、そして学習に関する質問・回答を投稿することができます！</h2>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-3">
+        <%= link_to '新規会員登録',new_user_path, class: 'btn btn-block btn-white' %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to 'ログイン', '#',class: 'btn btn-block btn-white' %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to '学習計画の作成', '#',class: 'btn btn-block btn-white' %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to '学習カテゴリーの一覧', '#',class: 'btn btn-block btn-white' %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to 'ツイート　〜今感じている事を自由に投稿しよう！', '#',class: 'btn btn-block btn-white' %>
+      </div>
+    </div>
+  </div>
+</div>
