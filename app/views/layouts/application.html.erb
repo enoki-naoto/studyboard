@@ -26,6 +26,7 @@
       <li>
         <%= link_to 'ログイン',login_path %>
       </li>
+      <% if logged_in? %>
       <li>
         <%= link_to '学習計画の作成', '#' %>
       </li>
@@ -36,8 +37,9 @@
         <%= link_to 'ツイート', '#' %>
       </li>
       <li>
-        <%= link_to 'ログアウト', '#' %>
+        <%= link_to 'ログアウト', logout_path, method: :delete %>
       </li>
+      <% end %>
      </ul>
     </div>
   </nav>
@@ -46,7 +48,7 @@
     
     <script>
       $(function(){
-        $(".alert").fadeOut(5000);
+        $(".alert").fadeOut(1300);
       });
     </script>
   </body>
