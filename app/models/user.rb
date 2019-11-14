@@ -4,5 +4,9 @@ class User < ApplicationRecord
   validates :password,length: {in: 8..32}, format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i} 
   validates :password_confirmation,length: {in: 8..32}
   
+  has_many :plans
+  has_many :todos
+  has_many :plan_todos, through: :plans, source: 'todo'
+  
   has_secure_password
 end

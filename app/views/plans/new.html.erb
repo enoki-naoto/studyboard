@@ -1,0 +1,12 @@
+<div class="users-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="text-center text-white">本日の学習目標を作成</h1>
+        <%= form_for @plan do |f| %>
+          <%= f.submit "学習目標を作成する", class: 'btn-block btn-white' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

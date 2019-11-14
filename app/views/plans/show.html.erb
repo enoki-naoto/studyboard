@@ -1,0 +1,25 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="topic-index-single">
+          <h2 class="topic-author">
+            <br>
+            <br>
+            <br>
+              <%= @plan.date %>
+          </h2>
+          <h3>
+            todo
+          </h3>
+            <p class="topic-text">
+              <% @plan.todos.each do |todo| %>
+                <%= todo.list %>
+                <br>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

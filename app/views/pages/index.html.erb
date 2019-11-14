@@ -1,0 +1,37 @@
+<div class="top-hero-wrapper text-center">
+  <div class="container top-hero-container">
+    <h1 class="text-white">学習掲示板　〜あなたの勉強をサポート〜</h1>
+    <h2 class="text-white">ここでは、あなたの学習目標の作成、学習に関する質問・回答を投稿できます！</h2>
+    <div class="row">
+      <div class="col-md-3">
+        <%= link_to '新規会員登録',new_user_path, class: 'btn btn-block btn-white' %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to 'ログイン',login_path,class: 'btn btn-block btn-white' %>
+      </div>
+       <div class="col-md-3">
+        <%= link_to '質問掲示板', '#',class: 'btn btn-block btn-white' %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to 'ツイート', '#',class: 'btn btn-block btn-white' %>
+      </div>
+      <div class="col-md-3">
+        <% if logged_in? %>
+          <% if !created_plan? %>
+            <%= link_to '学習計画の作成', new_plan_path,class: 'btn btn-block btn-white' %>
+          <% else %>
+            <%= link_to 'todoリストの作成', new_plan_todo_path(current_plan),class: 'btn btn-block btn-white' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <% if logged_in? %>
+          <% if created_plan? %>
+            <%= link_to '学習計画の閲覧', plan_path(current_plan),class: 'btn btn-block btn-white' %>
+          <% end %>
+        <% end %>
+      </div>
+     
+    </div>
+  </div>
+</div>

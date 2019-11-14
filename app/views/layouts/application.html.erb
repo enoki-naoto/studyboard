@@ -28,7 +28,16 @@
       </li>
       <% if logged_in? %>
       <li>
-        <%= link_to '学習計画の作成', '#' %>
+        <% if !created_plan? %>  
+          <%= link_to '学習計画の作成', new_plan_path %>
+        <% else %>
+          <%= link_to 'todoリストの作成', new_plan_todo_path(current_plan) %>
+        <% end %>
+      </li>
+      <li>
+        <% if created_plan? %> 
+          <%= link_to '学習計画の閲覧', plan_path(current_plan) %>
+        <% end %>
       </li>
       <li>
         <%= link_to '質問掲示板' ,'#'%>
