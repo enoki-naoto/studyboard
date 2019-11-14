@@ -20,12 +20,6 @@
       <li>
         <%= link_to 'トップページ',root_path %>
       </li>
-      <li>
-        <%= link_to '新規会員登録',new_user_path %>
-      </li>
-      <li>
-        <%= link_to 'ログイン',login_path %>
-      </li>
       <% if logged_in? %>
       <li>
         <% if !created_plan? %>  
@@ -47,6 +41,13 @@
       </li>
       <li>
         <%= link_to 'ログアウト', logout_path, method: :delete %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to '新規会員登録',new_user_path %>
+      </li>
+      <li>
+        <%= link_to 'ログイン',login_path %>
       </li>
       <% end %>
      </ul>
