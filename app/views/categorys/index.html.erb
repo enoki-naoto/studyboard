@@ -1,0 +1,19 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="topic-index-single">
+          <br>
+          <br>
+          <br>
+          <h1>学習カテゴリー　一覧</h1>
+          <h2 class="topic-author">
+              <% @categorys.each do|category| %>
+                <%= link_to category.name,'#',class: 'btn btn-block btn-black' %>
+              <% end %>
+          </h2>
+        </div>
+      </div>
+     </div>
+  </div>
+</div>
