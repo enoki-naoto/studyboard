@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :plans do
     resources :todos
   end
+  namespace :administrator do
+    resources :users, only: [:index]
+  end
   
   
   get '/login', to:'sessions#new'
