@@ -6,11 +6,13 @@
           <br>
           <br>
           <br>
-          <h1>学習カテゴリー　一覧</h1>
+          <h1>質問詳細</h1>
           <h2 class="topic-author">
-              <% @categorys.each do|category| %>
-                <%= link_to category.name,category_questions_path(category_id: category.id),class: 'btn btn-block btn-black' %>
-              <% end %>
+            <%= @question.title %>
+            <br>
+            <%= @question.content %>
+            <br>
+            <%= link_to 'この質問に回答する','#',class: 'btn btn-block btn-black' %>
           </h2>
         </div>
       </div>

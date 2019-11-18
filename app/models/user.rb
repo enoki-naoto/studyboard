@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :plans
   has_many :todos
+  has_many :questions
   has_many :plan_todos, through: :plans, source: 'todo'
   
   has_secure_password
