@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'questions/new'
-  get 'questions/index'
   get 'categorys/new'
   get 'categorys/index'
   post 'categorys/create'
@@ -17,6 +15,10 @@ Rails.application.routes.draw do
   end
   resources :categorys do
     resources :questions
+  end
+  
+  resources :questions do
+    resources :answers, only: [:new,:create]
   end
   
   get '/login', to:'sessions#new'

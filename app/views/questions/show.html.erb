@@ -12,7 +12,11 @@
             <br>
             <%= @question.content %>
             <br>
-            <%= link_to 'この質問に回答する','#',class: 'btn btn-block btn-black' %>
+            <p>回答</p>
+            <% @question.answers.each do|answer|%>
+              <%= answer.ans %>
+            <% end %>
+            <%= link_to 'この質問に回答する',new_question_answer_path(question_id: @question.id),class: 'btn btn-block btn-black' %>
           </h2>
         </div>
       </div>
