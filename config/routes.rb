@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'tweets/index'
+  get 'tweets/new'
+  get 'tweets/create'
+  get 'tweets/show'
   get 'categorys/new'
   get 'categorys/index'
   post 'categorys/create'
@@ -20,6 +24,8 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, only: [:new,:create]
   end
+
+  resources :tweets
   
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'

@@ -1,0 +1,25 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="topic-index-single">
+          <br>
+          <br>
+          <br>
+          <h1>ツイート</h1>
+          <h2 class="topic-author">
+            <% @tweets.each do|tweet| %>
+              <%= tweet.text %>
+               @
+              <%= tweet.user.name%>
+              <br>
+            <% end %>
+          </h2>
+          <h2 class="topic-author">
+            <%= link_to '発言する',tweets_new_path %>
+          </h2>
+        </div>
+      </div>
+     </div>
+  </div>
+</div>
