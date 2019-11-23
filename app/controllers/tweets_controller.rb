@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
+    @category = Category.all
   end
 
   def new
@@ -18,7 +19,25 @@ class TweetsController < ApplicationController
     end
   end
 
+  def search
+    if params[:category_id].present?
+      @tweets = Tweet.find_by(category_id: params[:category_id])
+    elsif params[:text].present?
+      @tweets = Tweet.where('text Like ?', "%#{params[:text]}%")
+    else
+      @tweets = Tweet.none
+    end
+  end
+    
+
   def show
+    if params[:category_id].present?
+      @tweets = Tweet.where(category_id: params[:category_id])
+    elsif params[:text].present?
+      @tweets = Tweet.where('text Like ?', "%#{params[:text]}%")
+    else
+      @tweets = Tweet.none
+    end
   end
   
   private

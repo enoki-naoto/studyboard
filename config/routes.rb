@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'tweets/index'
   get 'tweets/new'
   get 'tweets/create'
-  get 'tweets/show'
+  #get 'tweets/show'
   get 'categorys/new'
   get 'categorys/index'
   post 'categorys/create'
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   end
 
   resources :tweets
+  resources :tweets do
+    get :search, on: :collection
+  end
   
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
