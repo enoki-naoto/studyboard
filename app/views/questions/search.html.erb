@@ -1,0 +1,25 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="topic-index-single">
+          <br>
+          <br>
+          <br>
+          <h1>質問一覧</h1>
+          <div class="topic-author">
+            <% @questions.each do|question| %>
+              <h2>
+                <%= question.title %>
+              </h2>
+              <h4>
+                <%= question.content%>
+              </h4>
+              <br>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

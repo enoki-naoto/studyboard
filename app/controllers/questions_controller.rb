@@ -22,6 +22,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
   
+  def search
+    @questions = Question.where(user_id: current_user.id)
+  end
+  
   private
   def question_params
     params.require(:question).permit(:category_id,:user_id,:title,:content)

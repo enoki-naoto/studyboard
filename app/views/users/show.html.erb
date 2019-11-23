@@ -1,0 +1,37 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="topic-index-single">
+          <% if created_plan?%>
+            <h2 class="topic-author">
+             本日の学習計画
+            </h2>
+            <h3>
+              <%= current_plan.date %>
+              <br>
+              <% current_plan.todos.each do |todo|%>
+                <%= todo.list%>
+              <% end %>
+            </h3>
+          <% end %>
+          <h2 class="topic-author">
+            <% if created_question?%>
+              <%= link_to '投稿した質問',questions_search_path,class: 'btn btn-block btn-black'%>
+            <% else %>
+              <br>
+              <br>
+              <h5>質問掲示板へ投稿すれば、質問をここで確認できるよ！</h5>
+            <% end %>
+            <% if created_answer?%>
+              <%= link_to '投稿した回答',answers_search_path,class: 'btn btn-block btn-black'%>
+            <% else %>
+              <br>
+              <br>
+              <h5>質問掲示板へ投稿すれば、回答をここで確認できるよ！</h5>
+            <% end %>
+          </h2> 
+          </div>
+        </div>
+      </div>
+  </div>

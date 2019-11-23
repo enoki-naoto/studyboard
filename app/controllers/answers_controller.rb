@@ -14,6 +14,10 @@ class AnswersController < ApplicationController
     end
   end
   
+  def search
+    @answers = Answer.where(user_id: current_user.id)
+  end
+  
   private
   def answer_params
     params.require(:answer).permit(:question_id,:user_id,:ans)

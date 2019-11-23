@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post 'categorys/create'
   get 'pages/index'
   get 'sessions/new'
+  get 'questions/search'
+  get 'answers/search'
   root 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users

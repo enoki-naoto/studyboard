@@ -22,6 +22,9 @@
       </li>
       <% if logged_in? %>
       <li>
+        <%= link_to 'マイページ',user_path(id:current_user.id)%>
+      </li>
+      <li>
         <% if !created_plan? %>  
           <%= link_to '学習計画の作成', new_plan_path %>
         <% else %>
