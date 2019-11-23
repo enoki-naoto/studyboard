@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save!
-      redirect_to tweets_index_path,success: '発言しました'
+      redirect_to tweets_path,success: '発言しました'
     else
       flash.now[:denger]= '発言に失敗しました'
       render:new
@@ -24,6 +24,8 @@ class TweetsController < ApplicationController
       @tweets = Tweet.where(category_id: params[:category_id])
     elsif params[:text].present?
       @tweets = Tweet.where('text Like ?', "%#{params[:text]}%")
+    elsif params[:user_id].present?
+      @tweets = Tweet.where(user_id: params[:user_id])
     else
       @tweets = Tweet.none
     end

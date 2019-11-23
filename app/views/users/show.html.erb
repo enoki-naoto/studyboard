@@ -30,7 +30,14 @@
               <br>
               <h5>質問掲示板へ投稿すれば、回答をここで確認できるよ！</h5>
             <% end %>
-          </h2> 
+            <% if created_tweet?%>
+              <%= link_to '投稿したツイート',search_tweets_path(user_id: current_user.id),class: 'btn btn-block btn-black'%>
+            <% else %>
+              <br>
+              <br>
+              <h5>自分の投稿したツイートをここで確認できるよ！</h5>
+            <% end %>
+          </h2>
           </div>
         </div>
       </div>
