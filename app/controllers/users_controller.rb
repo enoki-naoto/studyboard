@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(current_user.id)
+    @tweet = Tweet.new
+    @category = Category.all
   end
   
   private

@@ -12,6 +12,7 @@
               <br>
               <% current_plan.todos.each do |todo|%>
                 <%= todo.list%>
+                <br>
               <% end %>
             </h3>
           <% end %>
@@ -38,6 +39,18 @@
               <h5>自分の投稿したツイートをここで確認できるよ！</h5>
             <% end %>
           </h2>
+          <br>
+          <h5>
+            ツイート　〜自由に発言しよう！〜
+           <%= form_for @tweet do |f| %>
+            <div class="form-group">
+              <%= f.collection_select(:category_id, @category, :id, :name, :prompt => "カテゴリ選択") %>
+              <%= f.text_area :text, class: 'form-control' %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+            </div>
+              <%= f.submit '発言する', class: 'btn btn-black btn-block' %>
+           <% end %>
+          </h5>
           </div>
         </div>
       </div>
