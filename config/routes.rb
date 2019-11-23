@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'tweets/index'
-  get 'tweets/new'
-  get 'tweets/create'
-  #get 'tweets/show'
   get 'categorys/new'
   get 'categorys/index'
   post 'categorys/create'
@@ -25,7 +21,7 @@ Rails.application.routes.draw do
     resources :answers, only: [:new,:create]
   end
 
-  resources :tweets
+  resources :tweets,only: [:index,:new,:create]
   resources :tweets do
     get :search, on: :collection
   end
