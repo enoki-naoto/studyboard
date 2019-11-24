@@ -1,0 +1,21 @@
+<div class="users-new-wrapper" >
+<br>
+<br>
+<br>
+<br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for [@plan,@todo], url: plan_todo_path(plan_id: @todo.plan_id,id: @todo.id) , method: :patch do |f| %>
+          <div class="form-group">
+            <%= f.label "todoリストの編集" %>
+            <%= f.text_area :list, class: 'form-control' %>
+          </div>
+          <% if logged_in? %>
+            <%= f.submit 'todo 更新', class: 'btn btn-black btn-block' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

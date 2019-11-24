@@ -19,6 +19,22 @@ class TodosController < ApplicationController
     @todo = Todo.where(id: params[:id])
     @plan = Plan.find(params[:plan_id])
   end
+  
+  def edit
+    @todo = Todo.find(params[:id])
+    @plan = Plan.find(params[:plan_id])
+  end
+  
+  def update
+    @todo = Todo.find(params[:id])
+    @todo.list = params[:todo][:list]
+    if @todo.save!
+      redirect_to plan_path(id: params[:plan_id]),success: '更新しました'
+    else
+      flash.now[:denger] = '更新に失敗しました'
+      render:edit
+    end
+  end
 
   private
   def todo_params

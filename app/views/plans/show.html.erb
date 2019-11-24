@@ -15,6 +15,10 @@
             <p class="topic-text">
               <% @plan.todos.each do |todo| %>
                 <%= todo.list %>
+                  &nbsp;
+                <%= link_to '編集',edit_plan_todo_path(plan_id: todo.plan_id,id: todo.id) %>
+                  &nbsp;
+                <%= link_to '削除',plan_todo_path(plan_id: todo.plan_id,id: todo.id),method: :delete %>
                 <br>
               <% end %>
             </p>
