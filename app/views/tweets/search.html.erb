@@ -12,6 +12,10 @@
               <%= tweet.text %>
                @
               <%= tweet.user.name%>
+              &nbsp;
+              <% if tweet.user_id == current_user.id %>
+                <%= link_to '削除', tweet_path(id: tweet.id),method: :delete %>
+              <% end %>
               <br>
             <% end %>
           </h2>
