@@ -15,6 +15,9 @@
               <h4>
                 <%= question.content%>
               </h4>
+              <%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
+                  &nbsp;
+              <%#= link_to '削除',category_question_path(category_id: question.category_id,id: question.id),method: :delete %>
               <br>
             <% end %>
           </div>

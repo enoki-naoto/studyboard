@@ -35,6 +35,12 @@ class TodosController < ApplicationController
       render:edit
     end
   end
+  
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+    redirect_to plan_path(id: params[:plan_id])
+  end
 
   private
   def todo_params

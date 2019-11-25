@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
   
   resources :questions do
-    resources :answers, only: [:new,:create]
+    resources :answers, only: [:new,:create,:destroy]
   end
 
   resources :tweets,only: [:index,:new,:create]

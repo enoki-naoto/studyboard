@@ -19,6 +19,7 @@
             回答
                 <%= answer.ans %>
               <br>
+                <%= link_to '削除',question_answer_path(question_id: answer.question_id,id: answer.id),method: :delete %>
             <% end %>
           </div>
         </div>

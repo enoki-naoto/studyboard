@@ -18,6 +18,12 @@ class AnswersController < ApplicationController
     @answers = Answer.where(user_id: current_user.id)
   end
   
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to answers_search_path,success:'回答を削除しました'
+  end
+  
   private
   def answer_params
     params.require(:answer).permit(:question_id,:user_id,:ans)

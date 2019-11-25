@@ -26,6 +26,29 @@ class QuestionsController < ApplicationController
     @questions = Question.where(user_id: current_user.id)
   end
   
+  def edit
+    @question = Question.find(params[:id])
+    @category = Category.find(params[:category_id])
+  end
+  
+  def update
+    @question = Question.find(params[:id])
+    @question.title = params[:question][:title]
+    @question.content = params[:question][:content]
+    if @question.save!
+      redirect_to questions_search_path,success: '質問を更新しました'
+    else
+      flash.now[:denger] = '更新に失敗しました'
+      render:edit
+    end
+  end
+  
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to questions_search_path,success:'質問を削除しました'
+  end
+  
   private
   def question_params
     params.require(:question).permit(:category_id,:user_id,:title,:content)
