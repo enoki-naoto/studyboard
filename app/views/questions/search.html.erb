@@ -9,15 +9,18 @@
           <h1>質問一覧</h1>
           <div class="topic-author">
             <% @questions.each do|question| %>
-              <h2>
-                <%= question.title %>
-              </h2>
               <h4>
+                質問題名：
+                <%= question.title %>
+              </h4>
+              <h4>
+                質問内容：
                 <%= question.content%>
               </h4>
               <%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
                   &nbsp;
               <%#= link_to '削除',category_question_path(category_id: question.category_id,id: question.id),method: :delete %>
+              <br>
               <br>
             <% end %>
           </div>

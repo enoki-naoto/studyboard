@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'results/new'
   get 'categorys/new'
   get 'categorys/index'
   post 'categorys/create'

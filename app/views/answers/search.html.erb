@@ -8,18 +8,23 @@
           <br>
           <h1>回答一覧</h1>
           <div class="topic-author">
-            質問
             <% @answers.each do |answer| %>
-              <h2>
-                <%= answer.question.title %>
-              </h2>
+            <h3>質問</h3>
               <h4>
+                質問題名：
+                <%= answer.question.title %>
+              </h4>
+              <h4>
+                質問内容：
                 <%= answer.question.content%>
               </h4>
-            回答
+              <h4>
+                回　　答：
                 <%= answer.ans %>
-              <br>
+              </h4>
                 <%= link_to '削除',question_answer_path(question_id: answer.question_id,id: answer.id),method: :delete %>
+              <br>
+              <br>
             <% end %>
           </div>
         </div>

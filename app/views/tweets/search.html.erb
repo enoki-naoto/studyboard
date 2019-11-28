@@ -7,7 +7,7 @@
           <br>
           <br>
           <h1>ツイート</h1>
-          <h2 class="topic-author">
+          <div class="topic-author">
             <% @tweets.each do|tweet| %>
               <%= tweet.text %>
                @
@@ -18,7 +18,7 @@
               <% end %>
               <br>
             <% end %>
-          </h2>
+          </div>
         </div>
       </div>
     </div>
