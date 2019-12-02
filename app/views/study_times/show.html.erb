@@ -1,0 +1,33 @@
+<div class="users-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="timecolor">
+          開始時間：
+          <%= @study_time.start.strftime('%X') %>
+          <br>
+          
+          <%= link_to '休憩する',new_study_time_break_path(study_time_id: @study_time.id)%>
+          <br>
+          休憩時間：
+          <%#= .strftime('%X')%>
+          <br>
+          
+          <%#= link_to '再開する',_path(id: @study_time.id)%>
+          再開時間：
+          <%#= .strftime('%X')%>
+          <br>
+          
+          <%= link_to '勉強を終了する',newfinish_study_time_path(id: @study_time.id) %>
+          <br>
+          終了時間：
+          <%= @study_time.finish.strftime('%X')%>
+          <br>
+          
+          勉強時間：
+          <%= Time.at(@study_time.finish-@study_time.start).utc.strftime('%X')%>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>

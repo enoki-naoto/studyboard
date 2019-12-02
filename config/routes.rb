@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'results/new'
   get 'categorys/new'
   get 'categorys/index'
   post 'categorys/create'
@@ -27,6 +26,14 @@ Rails.application.routes.draw do
   resources :tweets,only: [:index,:new,:create]
   resources :tweets do
     get :search, on: :collection
+  end
+  
+  resources :study_times do
+    member do
+      get :newfinish
+    end
+      resources :breaks do
+    end
   end
   
   get '/login', to:'sessions#new'

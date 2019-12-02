@@ -1,0 +1,33 @@
+class StudyTimesController < ApplicationController
+  
+  def new
+    @study_time = StudyTime.new
+  end
+  
+  def create
+    @study_time = StudyTime.new(user_id: current_user.id, date: Date.today)
+    @study_time.start = Time.new
+    if @study_time.save!
+      redirect_to study_time_path(id: @study_time.id), success: '勉強を開始します'
+    else
+      flash.now[:danger] = '失敗しました。操作をやり直してください'
+      render :new
+    end
+  end
+  
+  def show
+    @study_time = StudyTime.find(params[:id])
+  end
+  
+  def newfinish
+    @study_time = StudyTime.find(params[:id])
+    @study_time.finish = Time.new
+    if @study_time.save!
+      redirect_to study_time_path(id: @study_time.id), success: '勉強を終了します'
+    else
+      flash.now[:danger] = '失敗しました。操作をやり直してください'
+      render :show
+    end
+  end
+  
+end
