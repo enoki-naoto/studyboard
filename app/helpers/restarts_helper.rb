@@ -1,0 +1,2 @@
+module RestartsHelper
+end

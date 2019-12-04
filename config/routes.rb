@@ -32,9 +32,17 @@ Rails.application.routes.draw do
     member do
       get :newfinish
     end
-      resources :breaks do
-    end
+      resources :breaks
+        #member do
+          #get:newre
+        #end
+        #resources :restarts
+      #end
   end
+  
+  #resources :study_times do
+    #resources :restarts
+  #end
   
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
