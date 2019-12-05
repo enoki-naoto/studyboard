@@ -7,13 +7,17 @@
           <br>
           <br>
           <br>
+          勉強時間カレンダー
           <%= month_calendar events: @study_times do |date, study_times| %>
             <%= date %>
+            <% a = 0 %>
             <% study_times.each do |study_time| %>
             <div>
-              <%= Time.at(study_time.finish - study_time.start).utc.strftime('%X') %>
+              <% a += study_time.finish - study_time.start %>
+              <%#= Time.at(study_time.finish - study_time.start).utc.strftime('%-H時間%-M分%-S秒') %>
             </div>
             <% end %>
+            <%= Time.at(a).utc.strftime('%-H時間%-M分%-S秒') %>
           <% end %>
             <br>
           <% if created_plan?%>
