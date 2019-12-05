@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
   
   def current_study_time
-    @current_study_time ||= StudyTime.find_by(date: Date.today,user_id: current_user.id)
+    @current_study_time ||= StudyTime.find_by(studydate: Date.today,user_id: current_user.id)
   end
 
   def logged_in?

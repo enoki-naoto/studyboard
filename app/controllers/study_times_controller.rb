@@ -5,7 +5,7 @@ class StudyTimesController < ApplicationController
   end
   
   def create
-    @study_time = StudyTime.new(user_id: current_user.id, date: Date.today)
+    @study_time = StudyTime.new(user_id: current_user.id, studydate: Date.today)
     @study_time.start = Time.new
     if @study_time.save!
       redirect_to study_time_path(id: @study_time.id), success: '勉強を開始します'

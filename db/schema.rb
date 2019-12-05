@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_212802) do
 
   create_table "breaks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.time "stop"
+    t.time "res"
     t.integer "study_time_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_212802) do
   create_table "study_times", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.time "start"
     t.time "finish"
-    t.datetime "date"
+    t.datetime "studydate"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_212802) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

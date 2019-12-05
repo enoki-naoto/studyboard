@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @tweet = Tweet.new
     @category = Category.all
+    @study_times = StudyTime.where(user_id: current_user.id)
   end
   
   private

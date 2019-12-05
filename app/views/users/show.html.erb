@@ -3,7 +3,18 @@
     <div class="row">
       <div class="col-md-3">
         <div class="topic-index-single">
-            <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <%= month_calendar events: @study_times do |date, study_times| %>
+            <%= date %>
+            <% study_times.each do |study_time| %>
+            <div>
+              <%= Time.at(study_time.finish - study_time.start).utc.strftime('%X') %>
+            </div>
+            <% end %>
+          <% end %>
             <br>
           <% if created_plan?%>
             <h2 class="topic-author">
