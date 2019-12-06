@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   
   helper_method :current_user,:logged_in?,:current_plan,:created_plan?,:current_question,:created_question?,
-                :current_answer,:created_answer?,:current_tweet,:created_tweet?,:current_break,:created_break?,:current_study_time,:created_study_time?
+                :current_answer,:created_answer?,:current_tweet,:created_tweet?,:current_break,:created_break?,:current_study_time,:created_study_time?,
+                :current_study_time_full,:created_study_time_full?
                 
   
   
@@ -36,7 +37,11 @@ class ApplicationController < ActionController::Base
   end
   
   def current_study_time
-    @current_study_time ||= StudyTime.find_by(studydate: Date.today,user_id: current_user.id)
+    @current_study_time ||= StudyTime.find_by(finish: nil, studydate: Date.today,user_id: current_user.id)
+  end
+  
+  def current_study_time_full
+    @current_study_time_full ||= StudyTime.find_by(start: nil, finish: nil, studydate: nil,user_id: nil)
   end
 
   def logged_in?
@@ -65,6 +70,10 @@ class ApplicationController < ActionController::Base
   
   def created_study_time?
     !current_study_time.nil?
+  end
+  
+  def created_study_time_full?
+    !current_study_time_full.nil?
   end
   
 end

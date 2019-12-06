@@ -10,15 +10,18 @@
           勉強時間カレンダー
           <%= month_calendar events: @study_times do |date, study_times| %>
             <%= date %>
-            <% a = 0 %>
-            <% study_times.each do |study_time| %>
-            <div>
-              <% a += study_time.finish - study_time.start %>
-              <%#= Time.at(study_time.finish - study_time.start).utc.strftime('%-H時間%-M分%-S秒') %>
-            </div>
+            <%# if study_times[0].studydate == Date.today && !created_study_time? %>
+              <%#= "学習中" %>
+            <%# else %>
+            <%# if !study_times[0].finish.nil? %>
+              <% a = 0 %>
+              <% study_times.each do |study_time| %>
+                <% if !study_time.finish.nil? %>
+                  <% a += study_time.finish - study_time.start %>
+                <% end %>
+              <% end %>
+              <%= Time.at(a).utc.strftime('%-H時間%-M分%-S秒') %>
             <% end %>
-            <%= Time.at(a).utc.strftime('%-H時間%-M分%-S秒') %>
-          <% end %>
             <br>
           <% if created_plan?%>
             <h2 class="topic-author">
@@ -70,7 +73,8 @@
               <%= f.submit '発言する', class: 'btn btn-black btn-block' %>
            <% end %>
           </h5>
-          </div>
         </div>
       </div>
+    </div>
   </div>
+</div>
