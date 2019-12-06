@@ -30,7 +30,7 @@
              本日の学習計画
             </h2>
             <h3>
-              <%= current_plan.date %>
+              <%= current_plan.date.strftime("%Y-%m-%d") %>
               <br>
               <% current_plan.todos.each do |todo|%>
                 <%= todo.list%>
