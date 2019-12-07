@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(version: 2019_12_03_212802) do
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.datetime "date"
+    t.integer "plan_id"
+    t.datetime "plandate"
+    t.string "achieve"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_212802) do
     t.time "finish"
     t.datetime "studydate"
     t.integer "user_id"
+    t.integer "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

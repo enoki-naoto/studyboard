@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
   
   def current_plan
-    @current_plan ||= Plan.find_by(date: Date.today,user_id: current_user.id)
+    @current_plan ||= Plan.find_by(plandate: Date.today,user_id: current_user.id)
   end
   
   def current_question

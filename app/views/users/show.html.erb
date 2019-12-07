@@ -8,19 +8,33 @@
           <br>
           <br>
           勉強時間カレンダー
-          <%= month_calendar events: @study_times do |date, study_times| %>
+          <%= month_calendar events: @study_times do |date,study_times| %>
             <%= date %>
             <%# if study_times[0].studydate == Date.today && !created_study_time? %>
               <%#= "学習中" %>
             <%# else %>
             <%# if !study_times[0].finish.nil? %>
               <% a = 0 %>
+              <% b = "" %>
               <% study_times.each do |study_time| %>
                 <% if !study_time.finish.nil? %>
                   <% a += study_time.finish - study_time.start %>
                 <% end %>
+                <% if !study_time.plan.achieve.nil? %>
+                  <% b = study_time.plan.achieve %>
+                <% end %>
               <% end %>
               <%= Time.at(a).utc.strftime('%-H時間%-M分%-S秒') %>
+              <br>
+              <%= "目標達成度:#{b}" %>
+              <br>
+              
+                <%#= plans.each do |plan| %>
+                  <%# if !plan.achieve.nil? %>
+                    <%#= 計画達成度： %>
+                    <%#= plan.achieve %>
+                  <%# end %>
+                <%# end %>
             <% end %>
             <br>
           <% if created_plan?%>
@@ -30,7 +44,7 @@
              本日の学習計画
             </h2>
             <h3>
-              <%= current_plan.date.strftime("%Y-%m-%d") %>
+              <%= current_plan.plandate.strftime("%Y-%m-%d") %>
               <br>
               <% current_plan.todos.each do |todo|%>
                 <%= todo.list%>

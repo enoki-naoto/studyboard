@@ -4,7 +4,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.new(user_id: current_user.id, date: Date.today)
+    @plan = Plan.new(user_id: current_user.id, plandate: Date.today)
       if @plan.save
         redirect_to new_plan_todo_path(@plan), success: '学習目標を作成しました'
       else
@@ -18,6 +18,14 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+  end
+  
+  def update
+    @plan = Plan.find(params[:id])
+    @plan.achieve = params[:plan][:achieve]
+    if @plan.save!
+      redirect_to plan_path(id: params[:id]),success:"本日の目標達成度を登録しました"
+    end
   end
 
 end

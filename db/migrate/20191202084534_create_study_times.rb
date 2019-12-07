@@ -5,6 +5,7 @@ class CreateStudyTimes < ActiveRecord::Migration[5.2]
       t.time :finish
       t.datetime :studydate
       t.integer :user_id
+      t.integer :plan_id
 
       t.timestamps
     end

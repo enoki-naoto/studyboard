@@ -5,6 +5,7 @@ def start_time
 end
   
   belongs_to :user
+  belongs_to :plan
   #has_many :breaks
   #has_many :restarts
   

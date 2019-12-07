@@ -29,6 +29,22 @@
             勉強時間：
             <%= Time.at(@study_time.finish - @study_time.start).utc.strftime('%X')%>
           <% end %>
+          <br>
+          <% if !@study_time.finish.nil? && !@study_time.start.nil? %>
+            <%= "本日の目標達成度" %>
+            <%= form_with(model: @plan, local:true) do |form| %>
+              <%= form.radio_button :achieve,:perfect,checked: true %>
+              <%= form.label :achieve,"よく出来た", {value: :perfect, style: "display: inline-block;"} %>
+              <br>
+              <%= form.radio_button :achieve,:NotBad %>
+              <%= form.label :achieve,"まあまあだった", {value: :NotBad, style: "display: inline-block;"} %>
+              <br>
+              <%= form.radio_button :achieve,:Bad %>
+              <%= form.label :achieve,"全然ダメだった", {value: :Bad, style: "display: inline-block;"} %>
+              <br>
+              <%= form.submit "本日の目標達成度を評価する",class:"study_time_submit" %>
+            <% end %>
+          <% end %>
         </h1>
       </div>
     </div>
