@@ -34,14 +34,13 @@
       <li>
         <% if created_plan? %> 
           <%= link_to '学習計画の閲覧', plan_path(current_plan) %>
-        <% end %>
-      </li>
-      
-      <li>
-        <% if !created_study_time? %>
-          <%= link_to '学習開始（時間計測）',new_study_time_path %>
-        <% else %>
-          <%= link_to '学習中（時間計測中）',study_time_path(id: current_study_time.id) %>
+          <li>
+          <% if !created_study_time? %>
+            <%= link_to '学習開始（時間計測）',new_study_time_path %>
+          <% else %>
+            <%= link_to '学習中（時間計測中）',study_time_path(id: current_study_time.id) %>
+          <% end %>
+          </li>
         <% end %>
       </li>
       <li>
