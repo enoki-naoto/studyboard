@@ -10,12 +10,8 @@
           <div class="form-group">
             <%= f.label "todoリスト" %>
             <%= f.text_area :list, class: 'form-control' %>
-            <%= f.hidden_field :user_id, :value => @todo.user_id %>
-            <%= f.hidden_field :plan_id, :value => @todo.plan_id %>
           </div>
-          <% if logged_in? %>
             <%= f.submit 'todo 作成', class: 'btn btn-black btn-block' %>
-          <% end %>
         <% end %>
       </div>
     </div>

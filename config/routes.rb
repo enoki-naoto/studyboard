@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get 'answers/search'
   root 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
-  resources :plans do
-    resources :todos
+  resources :users, only: [:new,:create,:show]
+  resources :plans, only: [:new,:create,:show,:update] do
+    resources :todos, only: [:new,:create,:edit,:update,:destroy]
   end
   namespace :administrator do
     resources :users, only: [:index]

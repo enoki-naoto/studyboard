@@ -8,11 +8,9 @@ class User < ApplicationRecord
   has_many :todos
   has_many :questions
   has_many :answers
-  has_many :plan_todos, through: :plans, source: 'todo'
+  #has_many :plan_todos, through: :plans, source: 'todo'
   has_many :tweets
   has_many :study_times
-  #has_many :breaks
-  #has_many :restarts
-  
+
   has_secure_password
 end

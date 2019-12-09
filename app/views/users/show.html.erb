@@ -10,10 +10,6 @@
           勉強時間カレンダー
           <%= month_calendar events: @study_times do |date,study_times| %>
             <%= date %>
-            <%# if study_times[0].studydate == Date.today && !created_study_time? %>
-              <%#= "学習中" %>
-            <%# else %>
-            <%# if !study_times[0].finish.nil? %>
               <% a = 0 %>
               <% b = "" %>
               <% study_times.each do |study_time| %>
@@ -28,13 +24,6 @@
               <br>
               <%= "目標達成度:#{b}" %>
               <br>
-              
-                <%#= plans.each do |plan| %>
-                  <%# if !plan.achieve.nil? %>
-                    <%#= 計画達成度： %>
-                    <%#= plan.achieve %>
-                  <%# end %>
-                <%# end %>
             <% end %>
             <br>
           <% if created_plan?%>

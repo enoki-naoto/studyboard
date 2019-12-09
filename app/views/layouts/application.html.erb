@@ -22,7 +22,7 @@
       </li>
       <% if logged_in? %>
       <li>
-        <%= link_to 'マイページ',user_path(id:current_user.id)%>
+        <%= link_to 'マイページ',user_path(current_user)%>
       </li>
       <li>
         <% if !created_plan? %>  

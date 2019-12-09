@@ -11,9 +11,7 @@
             <%= f.label "todoリストの編集" %>
             <%= f.text_area :list, class: 'form-control' %>
           </div>
-          <% if logged_in? %>
             <%= f.submit 'todo 更新', class: 'btn btn-black btn-block' %>
-          <% end %>
         <% end %>
       </div>
     </div>
