@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <%= form_for @category,url: categorys_create_path do |f| %>
+        <%= form_for @category,url:categorys_path do |f| %>
           <div class="form-group">
             <%= f.label "学習カテゴリー作成" %>
             <%= f.text_area :name, class: 'form-control' %>

@@ -9,7 +9,7 @@
           <h1>学習カテゴリー　一覧</h1>
           <h2 class="topic-author">
               <% @categorys.each do|category| %>
-                <%= link_to category.name,category_questions_path(category_id: category.id),class: 'btn btn-block btn-black' %>
+                <%= link_to category.name,category_questions_path(category),class: 'btn btn-block btn-black' %>
               <% end %>
           </h2>
         </div>

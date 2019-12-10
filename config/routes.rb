@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'categorys/new'
-  get 'categorys/index'
-  post 'categorys/create'
+
   get 'pages/index'
   get 'sessions/new'
   get 'questions/search'
@@ -15,7 +13,8 @@ Rails.application.routes.draw do
   namespace :administrator do
     resources :users, only: [:index]
   end
-  resources :categorys do
+  
+  resources :categorys, only: [:new,:create,:index] do
     resources :questions
   end
   
