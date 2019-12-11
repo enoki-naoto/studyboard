@@ -16,19 +16,23 @@
             <% end %>
           </h2>
           <h2 class="topic-author">
-            <%= link_to '発言する',new_tweet_path %>
+            <% if logged_in? %>
+              <%= link_to '発言する',new_tweet_path %>
+              <%= 'カテゴリ検索' %>
+              <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
+                <%= f.collection_select(:category_id, @category, :id, :name, :prompt => "カテゴリ選択") %>
+                <%= f.submit '検索', class: 'btn btn-black btn-block' %>
+              <% end %>
+              <br>
+              <%= 'キーワード検索' %>
+              <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
+                <%= f.text_field :text%>
+                <%= f.submit '検索', class: 'btn btn-black btn-block' %>
+              <% end %>
+            <% else %>
+              <%= 'ログインすれば、ここから発言できます！' %>
+            <% end %>
           </h2>
-          <h3>カテゴリ検索</h3>
-            <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
-              <%= f.collection_select(:category_id, @category, :id, :name, :prompt => "カテゴリ選択") %>
-              <%= f.submit '検索', class: 'btn btn-black btn-block' %>
-            <% end %>
-            <br>
-            <h3>キーワード検索</h3>
-            <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
-              <%= f.text_field :text%>
-              <%= f.submit '検索', class: 'btn btn-black btn-block' %>
-            <% end %>
         </div>
       </div>
      </div>

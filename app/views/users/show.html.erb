@@ -43,14 +43,14 @@
           <% end %>
           <h2 class="topic-author">
             <% if created_question?%>
-              <%= link_to '投稿した質問',questions_search_path,class: 'btn btn-block btn-black'%>
+              <%= link_to '投稿した質問',search_category_questions_path(category_id: current_question.category_id),class: 'btn btn-block btn-black'%>
             <% else %>
               <br>
               <br>
               <h5>質問掲示板へ投稿すれば、質問をここで確認できるよ！</h5>
             <% end %>
             <% if created_answer?%>
-              <%= link_to '投稿した回答',answers_search_path,class: 'btn btn-block btn-black'%>
+              <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_question.category_id,question_id: current_question.id),class: 'btn btn-block btn-black'%>
             <% else %>
               <br>
               <br>

@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-
-  get 'pages/index'
-  get 'sessions/new'
-  get 'questions/search'
-  get 'answers/search'
+  
   root 'pages#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'sessions/new'
+
   resources :users, only: [:new,:create,:show]
   resources :plans, only: [:new,:create,:show,:update] do
     resources :todos, only: [:new,:create,:edit,:update,:destroy]
@@ -15,33 +12,29 @@ Rails.application.routes.draw do
   end
   
   resources :categorys, only: [:new,:create,:index] do
-    resources :questions
-  end
-  
-  resources :questions do
-    resources :answers, only: [:new,:create,:destroy]
+    resources :questions do
+      collection do
+        get :search
+      end
+      resources :answers, only: [:new,:create,:destroy] do
+        collection do
+          get :search
+        end
+      end
+    end
   end
 
-  resources :tweets,only: [:index,:new,:create]
-  resources :tweets do
-    get :search, on: :collection
+  resources :tweets,only: [:index,:new,:create,:destroy] do
+    collection do
+      get :search
+    end
   end
   
-  resources :study_times do
+  resources :study_times,only: [:new,:create,:show] do
     member do
       get :newfinish
     end
-      resources :breaks
-        #member do
-          #get:newre
-        #end
-        #resources :restarts
-      #end
   end
-  
-  #resources :study_times do
-    #resources :restarts
-  #end
   
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'

@@ -6,20 +6,8 @@
           開始時間：
           <%= @study_time.start.strftime('%X') %>
           <br>
-          <%# if @study_time.finish.nil? %>
-            <%#= link_to '休憩する',new_study_time_break_path(study_time_id: @study_time.id) %>
-            <%#= link_to '再開する',new_study_time_restart_path(study_time_id: @study_time.id) %>
-            <%# if !@study_time.breaks.nil? %>
-              <%#= link_to '再開する',new_study_time_break_restart_path(study_time_id: @study_time.id,break_id: params[:break_id]) %>
-              <%# if !@study_time.restarts.nil? %>
-                <%# @study_time.breaks.each do |break| %>
-                  <%#= puts '休憩時間：' %>
-                  <%#= Time.at(break.restart.interval).utc.strftime('%X')  %>
-              <%# end %>
-            <%# end %>
-          <%# end %>
           <% if @study_time.finish.nil? %>
-            <%= link_to '勉強を終了する',newfinish_study_time_path(id: @study_time.id) %>
+            <%= link_to '勉強を終了する',newfinish_study_time_path(@study_time) %>
           <% else %>
             終了時間：
             <%= @study_time.finish.strftime('%X')%>

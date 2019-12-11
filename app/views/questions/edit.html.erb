@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <%= form_for [@category,@question], url: category_question_path(category_id: @question.category_id,id: @question.id) , method: :patch do |f| %>
+        <%= form_for [@category,@question], url: category_question_path(@category,@question) , method: :patch do |f| %>
           <div class="form-group">
             <%= f.label "質問題名の編集" %>
             <%= f.text_area :title, class: 'form-control'%>
@@ -14,9 +14,7 @@
             <%= f.label "質問内容の編集" %>
             <%= f.text_area :content, class: 'form-control' %>
           </div>
-          <% if logged_in? %>
             <%= f.submit '更新', class: 'btn btn-black btn-block' %>
-          <% end %>
         <% end %>
       </div>
     </div>

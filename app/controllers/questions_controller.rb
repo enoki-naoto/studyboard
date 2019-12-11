@@ -5,8 +5,9 @@ class QuestionsController < ApplicationController
   end
   
   def create
-    @question = Question.new(question_params)
-    if @question.save!
+    question = Question.new(question_params)
+    question.user_id = current_user.id
+    if question.save!
       redirect_to category_questions_path(params[:category_id]),success: '質問を投稿しました'
     else
       flash.now[:denger] = '質問の投稿に失敗しました'
@@ -32,26 +33,27 @@ class QuestionsController < ApplicationController
   end
   
   def update
-    @question = Question.find(params[:id])
-    @question.title = params[:question][:title]
-    @question.content = params[:question][:content]
-    if @question.save!
-      redirect_to questions_search_path,success: '質問を更新しました'
+    question = Question.find(params[:id])
+    question.title = params[:question][:title]
+    question.content = params[:question][:content]
+    if question.save!
+      redirect_to search_category_questions_path(category_id: question.category_id),success: '質問を更新しました'
     else
       flash.now[:denger] = '更新に失敗しました'
       render:edit
     end
   end
   
-  def destroy
-    @question = Question.find(params[:id])
-    @question.destroy
-    redirect_to questions_search_path,success:'質問を削除しました'
-  end
+  
+  #def destroy
+   # question = Question.find(params[:id])
+    #question.destroy
+    #redirect_to questions_search_path,success:'質問を削除しました'
+  #end
   
   private
   def question_params
-    params.require(:question).permit(:category_id,:user_id,:title,:content)
+    params.require(:question).permit(:category_id,:title,:content)
   end
     
 end

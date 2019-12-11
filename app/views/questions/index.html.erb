@@ -12,7 +12,7 @@
           </h2>
           <h2 class="topic-author">
             <% @category.questions.each do|question| %>
-              <%= link_to question.title,category_question_path(category_id:@category.id,id: question.id),class: 'btn btn-block btn-black' %>
+              <%= link_to question.title,category_question_path(@category,question),class: 'btn btn-block btn-black' %>
             <% end %>
           </h2>
         </div>

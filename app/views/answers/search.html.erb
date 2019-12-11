@@ -22,7 +22,7 @@
                 回　　答：
                 <%= answer.ans %>
               </h4>
-                <%= link_to '削除',question_answer_path(question_id: answer.question_id,id: answer.id),method: :delete %>
+                <%= link_to '削除',category_question_answer_path(category_id: answer.question.category_id,question_id: answer.question_id,id: answer.id),method: :delete %>
               <br>
               <br>
             <% end %>
