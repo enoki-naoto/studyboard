@@ -10,21 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_212802) do
+ActiveRecord::Schema.define(version: 2019_12_02_084534) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
     t.string "ans"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "breaks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.time "stop"
-    t.time "res"
-    t.integer "study_time_id"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,7 +28,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_212802) do
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "plan_id"
     t.datetime "plandate"
     t.string "achieve"
     t.datetime "created_at", null: false
@@ -49,16 +39,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_212802) do
     t.integer "user_id"
     t.string "title"
     t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "restarts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.time "re"
-    t.time "interval"
-    t.integer "user_id"
-    t.integer "study_time_id"
-    t.integer "break_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

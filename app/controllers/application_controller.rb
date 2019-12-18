@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
   
   def current_plan
-    @current_plan ||= Plan.find_by(plandate: Date.today,user_id: current_user.id)
+    @current_plan ||= Plan.find_by(plandate: Date.current,user_id: current_user.id)
   end
   
   def current_question
@@ -37,12 +37,12 @@ class ApplicationController < ActionController::Base
   end
   
   def current_study_time
-    @current_study_time ||= StudyTime.find_by(finish: nil, studydate: Date.today,user_id: current_user.id)
+    @current_study_time ||= StudyTime.find_by(finish: nil, studydate: Date.current,user_id: current_user.id)
   end
   
-  def current_study_time_full
-    @current_study_time_full ||= StudyTime.find_by(start: nil, finish: nil, studydate: nil,user_id: nil)
-  end
+  #def current_study_time_full
+    #@current_study_time_full ||= StudyTime.find_by(start: nil, finish: nil, studydate: nil,user_id: nil)
+  #end
 
   def logged_in?
     !current_user.nil?

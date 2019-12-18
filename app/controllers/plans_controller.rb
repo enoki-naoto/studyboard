@@ -5,7 +5,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    plan = Plan.new(user_id: current_user.id, plandate: Date.today)
+    plan = Plan.new(user_id: current_user.id, plandate: Date.current)
     if plan.save
       redirect_to new_plan_todo_path(plan), success: '学習目標を作成しました'
     else

@@ -5,8 +5,8 @@ class StudyTimesController < ApplicationController
   end
   
   def create
-    @study_time = StudyTime.new(user_id: current_user.id, studydate: Date.today, plan_id: current_plan.id)
-    @study_time.start = Time.new
+    @study_time = StudyTime.new(user_id: current_user.id, studydate: Date.current, plan_id: current_plan.id)
+    @study_time.start = Time.current
     if @study_time.save!
       redirect_to study_time_path(@study_time), success: '勉強を開始します'
     else
@@ -22,7 +22,7 @@ class StudyTimesController < ApplicationController
   
   def newfinish
     @study_time = StudyTime.find(params[:id])
-    @study_time.finish = Time.new
+    @study_time.finish = Time.current
     if @study_time.save!
       redirect_to study_time_path(id: @study_time.id), success: '勉強を終了します'
     else
