@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2019_12_02_084534) do
   end
 
   create_table "study_times", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.time "start"
-    t.time "finish"
+    t.datetime "start"
+    t.datetime "finish"
     t.datetime "studydate"
     t.integer "user_id"
     t.integer "plan_id"

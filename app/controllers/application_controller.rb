@@ -37,12 +37,8 @@ class ApplicationController < ActionController::Base
   end
   
   def current_study_time
-    @current_study_time ||= StudyTime.find_by(finish: nil, studydate: Date.current,user_id: current_user.id)
+    @current_study_time ||= StudyTime.find_by(finish: nil, user_id: current_user.id)
   end
-  
-  #def current_study_time_full
-    #@current_study_time_full ||= StudyTime.find_by(start: nil, finish: nil, studydate: nil,user_id: nil)
-  #end
 
   def logged_in?
     !current_user.nil?
@@ -70,10 +66,6 @@ class ApplicationController < ActionController::Base
   
   def created_study_time?
     !current_study_time.nil?
-  end
-  
-  def created_study_time_full?
-    !current_study_time_full.nil?
   end
   
 end

@@ -20,7 +20,7 @@
           <br>
           <% if !@study_time.finish.nil? && !@study_time.start.nil? %>
             <%= "本日の目標達成度" %>
-            <%= form_with(model: @plan, local:true) do |form| %>
+            <%= form_with(model: @study_time.plan, local:true) do |form| %>
               <%= form.radio_button :achieve,:perfect,checked: true %>
               <%= form.label :achieve,"よく出来た", {value: :perfect, style: "display: inline-block;"} %>
               <br>

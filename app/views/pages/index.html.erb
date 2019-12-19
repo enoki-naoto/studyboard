@@ -17,31 +17,44 @@
           <%= link_to 'ツイート', tweets_path,class: 'btn btn-block btn-white' %>
         </div>
       <% else %>
-      <div class="col-md-3">
-        <% if !created_plan? %>
-          <%= link_to '学習計画の作成', new_plan_path,class: 'btn btn-block btn-white' %>
-        <% else %>
-          <%= link_to 'todoリストの作成', new_plan_todo_path(current_plan),class: 'btn btn-block btn-white' %>
-        <% end %>
-      </div>
-        <% if created_plan? %>
+        <% if !created_plan? && !created_study_time? %>
+          <div class="col-md-3">
+            <%= link_to '学習計画の作成', new_plan_path,class: 'btn btn-block btn-white' %>
+          </div>
+        <% elsif created_plan? %>
+          <div class="col-md-3">
+            <%= link_to 'todoリストの作成', new_plan_todo_path(current_plan),class: 'btn btn-block btn-white' %>
+          </div>
           <div class="col-md-3">
             <%= link_to '学習計画の閲覧', plan_path(current_plan),class: 'btn btn-block btn-white' %>
           </div>
+          <% if !created_study_time? %>
+            <div class="col-md-3">
+              <%= link_to '学習開始（時間計測）',new_study_time_path,class: 'btn btn-block btn-white' %>
+            </div>
+          <% end %>
+        <% elsif !created_plan? && created_study_time? %>
           <div class="col-md-3">
-           <% if !created_study_time? %>
-             <%= link_to '学習開始（時間計測）',new_study_time_path,class: 'btn btn-block btn-white'  %>
-           <% else %>
-             <%= link_to '学習中（時間計測中）',study_time_path(id: current_study_time.id),class: 'btn btn-block btn-white'  %>
-           <% end %>
+            <%= link_to 'todoリストの作成', new_plan_todo_path(id: current_study_time.plan_id),class: 'btn btn-block btn-white' %>
+          </div>
+          <div class="col-md-3">
+            <%= link_to '学習計画の閲覧', plan_path(id: current_study_time.plan_id),class: 'btn btn-block btn-white' %>
           </div>
         <% end %>
-      <div class="col-md-3">
-        <%= link_to '質問掲示板', categorys_path,class: 'btn btn-block btn-white' %>
-      </div>
-      <div class="col-md-3">
-        <%= link_to 'ツイート', tweets_path,class: 'btn btn-block btn-white' %>
-      </div>
+        
+        <% if created_study_time? %>
+          <div class="col-md-3">
+            <%= link_to '学習中（時間計測中）',study_time_path(id: current_study_time.id),class: 'btn btn-block btn-white' %>
+          </div>
+        <% end %>
+        
+        <div class="col-md-3">
+          <%= link_to '質問掲示板', categorys_path,class: 'btn btn-block btn-white' %>
+        </div>
+        <div class="col-md-3">
+          <%= link_to 'ツイート', tweets_path,class: 'btn btn-block btn-white' %>
+        </div>
+        
       <% end %>
     </div>
   </div>
