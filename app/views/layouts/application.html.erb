@@ -39,10 +39,7 @@
           <% end %>
         <% elsif !created_plan? && created_study_time? %>
           <li>
-            <%= link_to 'todoリストの作成', new_plan_todo_path(id: current_study_time.plan_id) %>
-          </li>
-          <li>
-            <%= link_to '学習計画の閲覧', plan_path(id: current_study_time.plan_id),class: 'btn btn-block btn-white' %>
+            <%= link_to '学習計画の閲覧', plan_path(id: current_study_time.plan_id) %>
           </li>
         <% end %>
         <% if created_study_time? %>
