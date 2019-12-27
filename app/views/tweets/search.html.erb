@@ -1,25 +1,20 @@
-<div class="topic-index-wrapper">
-  <div class="container">
+<div class="top-tweet-index-wrapper">
+  <div class="container tweet-index-container">
     <div class="row">
-      <div class="col-md-6">
-        <div class="topic-index-single">
+      <div class="col-md-offset-3 col-md-6">
+        <h1 class="text-center text-white">ツイート</h1>
+      </div>
+       <div class="col-md-12 text-white tweetSearch">
+        <% @tweets.each do|tweet| %>
+          <%= tweet.text %>
+           @
+          <%= tweet.user.name%>
+          &nbsp;
+          <% if logged_in? && tweet.user_id == current_user.id %>
+            <%= link_to '削除', tweet_path(tweet),method: :delete %>
+          <% end %>
           <br>
-          <br>
-          <br>
-          <h1>ツイート</h1>
-          <div class="topic-author">
-            <% @tweets.each do|tweet| %>
-              <%= tweet.text %>
-               @
-              <%= tweet.user.name%>
-              &nbsp;
-              <% if tweet.user_id == current_user.id %>
-                <%= link_to '削除', tweet_path(tweet),method: :delete %>
-              <% end %>
-              <br>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ class CategorysController < ApplicationController
       redirect_to categorys_path(category),success:"カテゴリーの作成に成功しました"
     else
       flash.now[:danger] = "カテゴリーの作成に失敗しました"
-      render:new
+      render 'new'
     end
   end
  

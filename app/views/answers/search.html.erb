@@ -1,34 +1,21 @@
-<div class="topic-index-wrapper">
-  <div class="container">
+<div class="top-question-index-wrapper text-white">
+  <div class="container question-index-container">
     <div class="row">
-      <div class="col-md-6">
-        <div class="topic-index-single">
-          <br>
-          <br>
-          <br>
-          <h1>回答一覧</h1>
-          <div class="topic-author">
-            <% @answers.each do |answer| %>
-            <h3>質問</h3>
-              <h4>
-                質問題名：
-                <%= answer.question.title %>
-              </h4>
-              <h4>
-                質問内容：
-                <%= answer.question.content%>
-              </h4>
-              <h4>
-                回　　答：
-                <%= answer.ans %>
-              </h4>
-                <%= link_to '削除',category_question_answer_path(category_id: answer.question.category_id,question_id: answer.question_id,id: answer.id),method: :delete %>
-              <br>
-              <br>
-            <% end %>
-          </div>
-        </div>
+      <div class="col-md-offset-3 col-md-6 text-center answerMylist">
+        <h1>回答一覧</h1>
       </div>
+      <% @answers.each do |answer| %>
+      <div class="col-md-12 text-left">
+        <h2>題　名：<%= answer.question.title %></h2>
+        <h2>内　容</h2>
+        <p><%= answer.question.content%></p>
+        <h2>回　答</h2>
+        <%= answer.ans %>
+        <%= link_to '削除',category_question_answer_path(category_id: answer.question.category_id,question_id: answer.question_id,id: answer.id),method: :delete %>
+        <br>
+        <br>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>

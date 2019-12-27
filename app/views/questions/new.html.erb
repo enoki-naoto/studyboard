@@ -1,29 +1,24 @@
-<div class="users-new-wrapper" >
-<br>
-<br>
-<br>
-<br>
-  <div class="container">
+<div class="top-category-add-form-wrapper text-left">
+  <div class="container top-category-add-form-container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <%= form_for [@category,@question] do |f| %>
           <div class="form-group">
             <% if logged_in? %>
-              <%= f.label "質問題名" %>
-              <%= f.text_area :title, class: 'form-control' %>
-              <br>
-              <%= f.label "質問内容" %>
-              <%= f.text_area :content, class: 'form-control' %>
+              <%= f.label "題名", class: 'text-white' %>
+              <%= f.text_area :title, class: 'form-control input-sm categoryTitle' %>
+              <%= f.label "内容", class: 'text-white' %>
+              <%= f.text_area :content, class: 'form-control input-lg' %>
               <%= f.hidden_field :category_id, :value => @category.id %>
-              <br>
-              <%= f.submit '質問投稿', class: 'btn btn-black btn-block' %>
+          </div>
+          <div class="col-md-offset-4 col-md-4">
+              <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          </div>
             <% else %>
-              <%= "質問の投稿は、ログイン後に行えます"%>
+          <div class="col-md-12 ">
+              <h1 class="text-white text-center"><%= "投稿はログイン後に行えます"%></h1>
+          </div>
             <% end %>
-            </div>
-              
-                
-            
         <% end %>
       </div>
     </div>

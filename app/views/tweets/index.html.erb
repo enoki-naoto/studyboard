@@ -1,40 +1,44 @@
-<div class="topic-index-wrapper">
-  <div class="container">
+<div class="top-tweet-index-wrapper">
+  <div class="container tweet-index-container">
     <div class="row">
-      <div class="col-md-6">
-        <div class="topic-index-single">
-          <br>
-          <br>
-          <br>
-          <h1>ツイート</h1>
-          <h2 class="topic-author">
-            <% @tweets.each do|tweet| %>
-              <%= tweet.text %>
-               @
-              <%= tweet.user.name%>
-              <br>
-            <% end %>
-          </h2>
-          <h2 class="topic-author">
-            <% if logged_in? %>
-              <%= link_to '発言する',new_tweet_path %>
-              <%= 'カテゴリ検索' %>
-              <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
-                <%= f.collection_select(:category_id, @category, :id, :name, :prompt => "カテゴリ選択") %>
-                <%= f.submit '検索', class: 'btn btn-black btn-block' %>
-              <% end %>
-              <br>
-              <%= 'キーワード検索' %>
-              <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
-                <%= f.text_field :text%>
-                <%= f.submit '検索', class: 'btn btn-black btn-block' %>
-              <% end %>
-            <% else %>
-              <%= 'ログインすれば、ここから発言できます！' %>
-            <% end %>
-          </h2>
-        </div>
+      <div class="col-md-offset-3 col-md-6">
+        <h1 class="text-center text-white">ツイート</h1>
       </div>
-     </div>
+      <% if logged_in? %>
+        <div class="col-md-4 col-md-offset-4 text-center tweetNew">
+          <%= link_to '発言する',new_tweet_path,class:'btn btn-white' %>
+        </div>
+      <% else %>
+        <div class="col-md-12 text-center tweetLogin text-white noLog">
+          <%= 'ログインすれば、ここから発言できます！' %>
+        </div>
+      <% end %>
+      <div class="col-md-12 text-white">
+        <% @tweets.each do|tweet| %>
+          <%= tweet.text %>
+          <%= "@" %>
+          <%= tweet.user.name%>
+          <br>
+        <% end %>
+      </div>
+        <div class="col-md-12 categorySearch text-white text-left">
+          <h4 class=searchTweet>カテゴリ検索</h4>
+        </div>
+          <div class="col-md-12 text-black text-left searchTweet">
+            <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
+              <%= f.collection_select :category_id, @category, :id, :name, :prompt => "カテゴリ選択" %>
+              <%= f.submit '検索', class: 'btn btn-black searchTweet' %>
+            <% end %>
+          </div>
+        <div class="col-md-12 text-white text-left searchTweet">
+          <h4>キーワード検索</h4>
+        </div>
+          <div class="col-md-12 searchTweet text-left">
+            <%= form_with url:search_tweets_path, method: :get, local: true do |f|%>
+              <%= f.text_field :text%>
+              <%= f.submit '検索', class: 'btn btn-black' %>
+            <% end %>
+          </div>
+    </div>
   </div>
 </div>

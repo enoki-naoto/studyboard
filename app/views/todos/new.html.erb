@@ -1,18 +1,16 @@
-<div class="users-new-wrapper" >
-<br>
-<br>
-<br>
-<br>
-  <div class="container">
+<div class="top-tweet-add-form-wrapper">
+  <div class="container top-tweet-add-form-container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <%= form_for @todo, url: plan_todos_path(plan_id: @todo.plan_id) do |f| %>
-          <div class="form-group">
+          <div class="form-group text-white">
             <%= f.label "todoリスト" %>
             <%= f.text_area :list, class: 'form-control' %>
             <%= f.hidden_field :plan_id, :value =>@todo.plan_id %>
           </div>
-            <%= f.submit 'todo 作成', class: 'btn btn-black btn-block' %>
+          <div class="col-md-offset-4 col-md-4">
+            <%= f.submit 'todo 作成', class: 'btn btn-black btn-block text-center' %>
+          </div>
         <% end %>
       </div>
     </div>

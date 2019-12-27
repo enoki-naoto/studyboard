@@ -1,40 +1,46 @@
-<div class="users-new-wrapper">
-  <div class="container">
+<div class="top-plan-show-wrapper text-white">
+  <div class="container plan-show-container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="timecolor">
-          開始時間：
-          <%= @study_time.start.strftime('%X') %>
-          <br>
+      <div class="col-md-offset-3 col-md-6">
+        <h1 class="text-center">本日の勉強時間</h1>
+      </div>
+      <div class="col-md-offset-4 col-md-4 text-center">
+        <h2>開始時間：<%= @study_time.start.strftime('%X') %></h2>
+      </div>
+      <div class="col-md-offset-4 col-md-4 text-center">
+        <h2>
           <% if @study_time.finish.nil? %>
-            <%= link_to '勉強を終了する',newfinish_study_time_path(@study_time) %>
+            <%= link_to '勉強終了',newfinish_study_time_path(@study_time),class:'btn btn-white' %>
           <% else %>
-            終了時間：
-            <%= @study_time.finish.strftime('%X')%>
+            終了時間：<%= @study_time.finish.strftime('%X')%>
           <% end %>
-          <br>
+        </h2>
+      <div class="col-md-12 text-center">
+        <h2>
           <% if !@study_time.finish.nil?%>
-            勉強時間：
-            <%= Time.at(@study_time.finish - @study_time.start).utc.strftime('%X')%>
+            勉強時間：<%= Time.at(@study_time.finish - @study_time.start).utc.strftime('%X')%>
           <% end %>
-          <br>
-          <% if !@study_time.finish.nil? && !@study_time.start.nil? %>
+        </h2>
+      </div>
+      <div class="col-md-12 text-center">
+        <% if !@study_time.finish.nil? && !@study_time.start.nil? %>
+          <h2>
             <%= "本日の目標達成度" %>
             <%= form_with(model: @study_time.plan, local:true) do |form| %>
-              <%= form.radio_button :achieve,:perfect %>
-              <%= form.label :achieve,"よく出来た", {value: :perfect, style: "display: inline-block;"} %>
+              <%= form.radio_button :achieve,"◎" %>
+              <%= form.label :achieve,"よく出来ました", {value: "◎", style: "display: inline-block;"} %>
               <br>
-              <%= form.radio_button :achieve,:NotBad %>
-              <%= form.label :achieve,"まあまあだった", {value: :NotBad, style: "display: inline-block;"} %>
+              <%= form.radio_button :achieve,"△" %>
+              <%= form.label :achieve,"まあまあだった", {value: "△", style: "display: inline-block;"} %>
               <br>
-              <%= form.radio_button :achieve,:Bad %>
-              <%= form.label :achieve,"全然ダメだった", {value: :Bad, style: "display: inline-block;"} %>
+              <%= form.radio_button :achieve,"❌" %>
+              <%= form.label :achieve,"全然ダメだった", {value: "❌", style: "display: inline-block;"} %>
               <br>
-              <%= form.submit "本日の目標達成度を評価する",class:"study_time_submit" %>
+              <%= form.submit "本日の目標達成度を評価する",class:"btn btn-white" %>
             <% end %>
           <% end %>
-        </h1>
-      </div>
+          <h2>
+       </div>
     </div>
   </div>
 </div>

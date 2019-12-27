@@ -1,8 +1,10 @@
-<div class="users-new-wrapper">
-  <div class="container">
+<div class="top-study-add-form-wrapper">
+  <div class="container top-study-add-form-container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text-white">下のボタンをクリックすると、勉強時間の計測が始まるよ！</h1>
+      <div class="col-md-12 studyStart">
+        <h1 class="text-center text-white text-center">下のボタンを押すと、勉強時間の計測を始めるよ❗️</h1>
+      </div>
+      <div class="col-md-4 col-md-offset-4">
         <%= form_for @study_time do |f| %>
           <%= f.submit "学習を開始する", class: 'btn-block btn-white' %>
         <% end %>

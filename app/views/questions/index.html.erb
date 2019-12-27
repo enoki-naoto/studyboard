@@ -1,22 +1,14 @@
-<div class="topic-index-wrapper">
-  <div class="container">
+<div class="top-question-index-wrapper text-left">
+  <div class="container question-index-container">
     <div class="row">
-      <div class="col-md-6">
-        <div class="topic-index-single">
-          <br>
-          <br>
-          <br>
-          <h1>質問一覧</h1>
-          <h2 class="topic-author">
-            <%= link_to '質問を投稿する',new_category_question_path(category_id: @category.id)%>
-          </h2>
-          <h2 class="topic-author">
-            <% @category.questions.each do|question| %>
-              <%= link_to question.title,category_question_path(@category,question),class: 'btn btn-block btn-black' %>
-            <% end %>
-          </h2>
-        </div>
+      <div class="col-md-offset-3 col-md-6 text-white text-center categoryName">
+        <h1>質問一覧</h1>
       </div>
+      <div class="col-md-offset-3 col-md-6">
+            <% @category.questions.each do|question| %>
+              <%= link_to question.title,category_question_path(@category,question),class: 'btn btn-block btn-white' %>
+            <% end %>
+      <%= link_to '質問を投稿する',new_category_question_path(category_id: @category.id),class:'text-white text-left' %>
      </div>
   </div>
 </div>

@@ -11,7 +11,7 @@ class StudyTimesController < ApplicationController
       redirect_to study_time_path(@study_time), success: '勉強を開始します'
     else
       flash.now[:danger] = '失敗しました。操作をやり直してください'
-      render :new
+      render 'new'
     end
   end
   
@@ -23,11 +23,11 @@ class StudyTimesController < ApplicationController
     @study_time = StudyTime.find(params[:id])
     @study_time.finish = DateTime.current
     if @study_time.start.strftime("%Y%m%d") == @study_time.finish.strftime("%Y%m%d") 
-      if @study_time.save!
+      if @study_time.save
         redirect_to study_time_path(id: @study_time.id), success: '勉強を終了します'
       else
         flash.now[:danger] = '失敗しました。操作をやり直してください'
-        render :show
+        render 'show'
       end
     else
       @study_time.finish = @study_time.start.end_of_day
@@ -35,11 +35,11 @@ class StudyTimesController < ApplicationController
       @plan = Plan.create(user_id: current_user.id, plandate: Date.current)
       @study_time = StudyTime.create(start: DateTime.current.beginning_of_day, finish: DateTime.current, studydate: Date.current, plan_id: current_plan.id,user_id: current_user
       .id)
-      if @study_time.save!
+      if @study_time.save
         redirect_to study_time_path(id: @study_time.id), success: '勉強を終了します'
       else
         flash.now[:danger] = '失敗しました。操作をやり直してください'
-        render :show
+        render 'show'
       end
     end
   end

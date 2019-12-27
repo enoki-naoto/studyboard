@@ -1,83 +1,81 @@
-<div class="topic-index-wrapper">
-  <div class="container">
+<div class="top-user-show-wrapper">
+  <div class="container user-show-container">
     <div class="row">
-      <div class="col-md-3">
-        <div class="topic-index-single">
-          <br>
-          <br>
-          <br>
-          <br>
-          勉強時間カレンダー
-          <%= month_calendar events: @study_times do |date,study_times| %>
-            <%= date %>
-              <% a = 0 %>
-              <% b = "" %>
-              <% study_times.each do |study_time| %>
-                <% if !study_time.finish.nil? %>
-                  <% a += study_time.finish - study_time.start %>
-                <% end %>
-                <% if !study_time.plan.achieve.nil? %>
-                  <% b = study_time.plan.achieve %>
-                <% end %>
-              <% end %>
-              <%= Time.at(a).utc.strftime('%-H時間%-M分%-S秒') %>
-              <br>
-              <%= "目標達成度:#{b}" %>
-              <br>
-            <% end %>
-            <br>
-          <% if created_plan?%>
-            <h2 class="topic-author">
-             <br>
-             <br>
-             本日の学習計画
-            </h2>
-            <h3>
-              <%= current_plan.plandate.strftime("%Y-%m-%d") %>
-              <br>
-              <% current_plan.todos.each do |todo|%>
-                <%= todo.list%>
-                <br>
-              <% end %>
-            </h3>
-          <% end %>
-          <h2 class="topic-author">
-            <% if created_question?%>
-              <%= link_to '投稿した質問',search_category_questions_path(category_id: current_question.category_id),class: 'btn btn-block btn-black'%>
-            <% else %>
-              <br>
-              <br>
-              <h5>質問掲示板へ投稿すれば、質問をここで確認できるよ！</h5>
-            <% end %>
-            <% if created_answer?%>
-              <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_question.category_id,question_id: current_question.id),class: 'btn btn-block btn-black'%>
-            <% else %>
-              <br>
-              <br>
-              <h5>質問掲示板へ投稿すれば、回答をここで確認できるよ！</h5>
-            <% end %>
-            <% if created_tweet?%>
-              <%= link_to '投稿したツイート',search_tweets_path(user_id: current_user.id),class: 'btn btn-block btn-black'%>
-            <% else %>
-              <br>
-              <br>
-              <h5>自分の投稿したツイートをここで確認できるよ！</h5>
-            <% end %>
-          </h2>
-          <br>
-          <h5>
-            ツイート　〜自由に発言しよう！〜
-           <%= form_for @tweet do |f| %>
-            <div class="form-group">
-              <%= f.collection_select(:category_id, @category, :id, :name, :prompt => "カテゴリ選択") %>
-              <%= f.text_area :text, class: 'form-control' %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-            </div>
-              <%= f.submit '発言する', class: 'btn btn-black btn-block' %>
-           <% end %>
-          </h5>
-        </div>
+      <div class="col-md-12 text-center">
+        <h1>マイページ</h1>
       </div>
+      
+      <div class="col-md-12 text-black text-left">
+        <h2>勉強時間カレンダー</h2>
+      </div>
+      
+      <div class="col-md-12">
+        <%= month_calendar events: @study_times do |date,study_times| %>
+          <%= date %>
+          <% a = 0 %>
+          <% b = "" %>
+          <% study_times.each do |study_time| %>
+            <% if !study_time.finish.nil? %>
+              <% a += study_time.finish - study_time.start %>
+            <% end %>
+            <% if !study_time.plan.achieve.nil? %>
+              <% b = study_time.plan.achieve %>
+            <% end %>
+          <% end %>
+          <br>
+          <%= Time.at(a).utc.strftime('%-H時間%-M分%-S秒') %>
+          <br>
+          <%= "目標達成度:#{b}" %>
+          <br>
+        <% end %>
+      </div>
+ 
+      <% if created_question?%>
+      <div class="col-md-12 text-left">
+        <h3>
+          <%= link_to '投稿した質問',search_category_questions_path(category_id: current_question.category_id),class: 'btn-black'%>
+        </h3>
+      <% else %>
+        <h3>質問掲示板へ投稿すれば、質問をここで確認できるよ！</h3>
+      <% end %>
+      </div>
+      
+      <% if created_answer?%>
+      <div class="col-md-12 text-left">
+        <h3>
+          <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_question.category_id,question_id: current_question.id),class: 'btn-black'%>
+        </h3>   
+      <% else %>
+        <h3>質問掲示板へ投稿すれば、回答をここで確認できるよ！</h3>
+      <% end %>
+      </div>
+      
+      <% if created_tweet?%>
+      <div class="col-md-12 text-left myTweetList">
+        <h3>
+          <%= link_to '投稿したツイート',search_tweets_path(user_id: current_user.id),class: 'btn-black'%>
+        </h3>
+      <% else %>
+        <h3>自分の投稿したツイートをここで確認できるよ！</h3>
+      <% end %>
+      </div>
+      
+      <div class="col-md-12 text-left">
+        <h3>ツイート　〜自由に発言しよう！〜</h3>
+      </div>
+      <div class="col-md-6 text-left">
+       <%= form_for @tweet do |f| %>
+        <div class="form-group">
+          <%= f.collection_select(:category_id, @category, :id, :name, :prompt => "カテゴリ選択") %>
+          <%= f.text_area :text, class: 'form-control input-lg' %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        </div>
+        <div class="col-md-offset-4 col-md-4 text-left">
+          <%= f.submit '発言する', class: 'btn-block' %>
+        </div>
+       <% end %>
+      </div>
+      
     </div>
   </div>
 </div>

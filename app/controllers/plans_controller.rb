@@ -10,7 +10,7 @@ class PlansController < ApplicationController
       redirect_to new_plan_todo_path(plan), success: '学習目標を作成しました'
     else
       flash.now[:danger]="学習目標の作成に失敗しました"
-      render :new
+      render 'new'
     end
   end
 
@@ -21,11 +21,11 @@ class PlansController < ApplicationController
   def update
     plan = Plan.find(params[:id])
     plan.achieve = params[:plan][:achieve]
-    if plan.save!
+    if plan.save
       redirect_to plan_path(plan),success:"本日の目標達成度を登録しました"
     else
       flash.now[:danger]="失敗しました"
-      render :show
+      render 'show'
     end
   end
 

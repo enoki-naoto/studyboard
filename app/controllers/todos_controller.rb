@@ -8,11 +8,11 @@ class TodosController < ApplicationController
   def create
     todo = Todo.new(todo_params)
     todo.user_id = current_user.id
-    if todo.save!
+    if todo.save
       redirect_to plan_path(id: todo.plan_id), success: 'todoを作成しました'
     else
       flash.now[:danger] = 'todoの作成に失敗しました'
-      render:new
+      render 'new'
     end
   end
   
@@ -24,11 +24,11 @@ class TodosController < ApplicationController
   def update
     todo = Todo.find(params[:id])
     todo.list = params[:todo][:list]
-    if todo.save!
+    if todo.save
       redirect_to plan_path(id: todo.plan_id),success: '更新しました'
     else
       flash.now[:denger] = '更新に失敗しました'
-      render:edit
+      render 'edit'
     end
   end
   

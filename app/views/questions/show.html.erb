@@ -1,31 +1,30 @@
-<div class="topic-index-wrapper">
-  <div class="container">
+<div class="top-question-show-wrapper text-left">
+  <div class="container question-show-container">
     <div class="row">
-      <div class="col-md-6">
-        <div class="topic-index-single">
-          <br>
-          <br>
-          <br>
-          <h1>質問詳細</h1>
-          <h4 class="topic-author">
-            質問題名：
-            <%= @question.title %>
-            <br>
-            質問内容：
-            <%= @question.content %>
-            <br>
-            <br>
-            <p>回答</p>
-            <% @question.answers.each do|answer|%>
-              <%= answer.ans %>
-              <br>
-            <% end %>
-            <% if logged_in? %>
-              <%= link_to 'この質問に回答する',new_category_question_answer_path(category_id: @question.category_id, question_id: @question.id),class: 'btn btn-block btn-black' %>
-            <% end %>
-          </h2>
-        </div>
+      <div class="col-md-offset-2 col-md-8">
+        <h1 class="text-white text-center questionShow"><%= @question.title %></h1>
       </div>
+      <div class="col-md-offset-1 col-md-10 col-md-offset-1">
+        <h2 class="text-white text-left">内容</h2>
+        <h3 class="text-white text-left questionContent">&nbsp;&nbsp;<%= @question.content %></h3>
+        <h2 class="text-white text-left">回答</h2>
+        <ol class="text-white">
+          <% @question.answers.each do|answer|%>
+            <li class="answerList">
+              <%= answer.ans %>
+              <% if logged_in? %>
+                <%= "@" %>
+                <%= answer.user.name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ol>
+          <div class=" col-md-offset-4 col-md-4 col-md-offset-4 answerCreate text-center">
+            <% if logged_in? %>
+              <%= link_to 'この質問に回答する',new_category_question_answer_path(category_id: @question.category_id, question_id: @question.id),class: 'btn btn-block btn-white' %>
+            <% end %>
+          </div>
+       </div>
      </div>
   </div>
 </div>

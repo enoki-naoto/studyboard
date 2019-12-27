@@ -1,30 +1,20 @@
-<div class="topic-index-wrapper">
-  <div class="container">
+<div class="top-question-index-wrapper text-white">
+  <div class="container question-index-container">
     <div class="row">
-      <div class="col-md-6">
-        <div class="topic-index-single">
-          <br>
-          <br>
-          <br>
-          <h1>質問一覧</h1>
-          <div class="topic-author">
-            <% @questions.each do|question| %>
-              <h4>
-                質問題名：
-                <%= question.title %>
-              </h4>
-              <h4>
-                質問内容：
-                <%= question.content%>
-              </h4>
-              <%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
-                  &nbsp;
-              <%#= link_to '削除',category_question_path(category_id: question.category_id,id: question.id),method: :delete %>
-              <br>
-              <br>
-            <% end %>
+      <div class="col-md-offset-3 col-md-6 text-center questionMylist">
+        <h1>質問一覧</h1>
+      </div>
+        <% @questions.each do|question| %>
+          <div class="col-md-12 text-left">
+            <h3>題名：<%= question.title %></h3>
+            <h3>質問内容</h3>
+              <p>
+                &nbsp;&nbsp;<%= question.content%>&nbsp;<%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
+                <%#= link_to '削除',category_question_path(category_id: question.category_id,id: question.id),method: :delete %>
+              </p>
           </div>
-        </div>
+          <br>
+        <% end %>
       </div>
     </div>
   </div>

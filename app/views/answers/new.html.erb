@@ -1,20 +1,18 @@
-<div class="users-new-wrapper" >
-<br>
-<br>
-<br>
-<br>
-  <div class="container">
+<div class="top-category-add-form-wrapper text-left">
+  <div class="container top-category-add-form-container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <%= form_for [@category,@question,@answer] do |f| %>
           <div class="form-group">
-            <%= f.label "回答" %>
-            <%= f.text_area :ans, class: 'form-control' %>
+            <%= f.label "回答",class:'text-white' %>
+            <%= f.text_area :ans, class: 'form-control input-lg' %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.hidden_field :question_id, :value => @question.id %>
           </div>
           <% if logged_in? %>
-            <%= f.submit '回答投稿', class: 'btn btn-black btn-block' %>
+            <div class="col-md-offset-4 col-md-4">
+              <%= f.submit '回答投稿', class: 'btn btn-black btn-block' %>
+            </div>
           <% end %>
         <% end %>
       </div>

@@ -7,11 +7,11 @@ class QuestionsController < ApplicationController
   def create
     question = Question.new(question_params)
     question.user_id = current_user.id
-    if question.save!
+    if question.save
       redirect_to category_questions_path(params[:category_id]),success: '質問を投稿しました'
     else
       flash.now[:denger] = '質問の投稿に失敗しました'
-      render:new
+      render 'new'
     end
   end
 
@@ -36,11 +36,11 @@ class QuestionsController < ApplicationController
     question = Question.find(params[:id])
     question.title = params[:question][:title]
     question.content = params[:question][:content]
-    if question.save!
+    if question.save
       redirect_to search_category_questions_path(category_id: question.category_id),success: '質問を更新しました'
     else
       flash.now[:denger] = '更新に失敗しました'
-      render:edit
+      render 'edit'
     end
   end
   
