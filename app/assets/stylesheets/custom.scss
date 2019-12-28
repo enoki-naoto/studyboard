@@ -22,7 +22,7 @@ h1, h2 {
 
 .top-hero-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('bg-top.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -49,7 +49,7 @@ form-control {
 
 .users-new-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: image-url('bg-top.png');
   background-position: center center;
   background-repeat: no-repeat;
@@ -80,7 +80,7 @@ form-control {
 
 .top-category-add-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0px;
   overflow: scroll;
   background-color: #464646;
@@ -93,7 +93,7 @@ form-control {
   
   .top-category-add-form-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0px;
   overflow: scroll;
   background-color: #464646;
@@ -106,7 +106,7 @@ form-control {
   
 .top-user-add-form-wrapper {
 width: 100vw;
-height: 100vh;
+min-height: 100vh;
 padding-top: 0px;
 overflow: scroll;
 background-color: #464646;
@@ -119,7 +119,7 @@ font-size: 20px;
 
 .top-session-form-wrapper {
 width: 100vw;
-height: 100vh;
+min-height: 100vh;
 padding-top: 0px;
 overflow: scroll;
 background-color: #464646;
@@ -157,7 +157,7 @@ margin-bottom:20px;
 
 .top-question-index-wrapper {
 width: 100vw;
-height: 100vh;
+min-height: 100vh;
 padding-top: 0px;
 overflow: scroll;
 background-color: #464646;
@@ -170,7 +170,7 @@ font-size: 20px;
 
 .top-question-show-wrapper {
 width: 100vw;
-height: 100vh;
+min-height: 100vh;
 overflow: scroll;
 background-color: #464646;
 }
@@ -199,7 +199,7 @@ margin-bottom:20px;
 
 .top-tweet-index-wrapper {
 width: 100vw;
-height: 100vh;
+min-height: 100vh;
 padding-top: 0px;
 overflow: scroll;
 background-color: #464646;
@@ -233,7 +233,7 @@ margin-top:40px;
 
  .top-tweet-add-form-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0px;
   overflow: scroll;
   background-color: #464646;
@@ -262,7 +262,7 @@ margin-top:40px;
 
 .top-plan-show-wrapper {
 width: 100vw;
-height: 100vh;
+min-height: 100vh;
 padding-top: 0px;
 overflow: scroll;
 background-color: #464646;
@@ -275,7 +275,7 @@ font-size: 20px;
 
 .top-plan-add-form-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0px;
   overflow: scroll;
   background-color: #464646;
@@ -288,7 +288,7 @@ font-size: 20px;
   
   .top-study-add-form-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0px;
   overflow: scroll;
   background-color: #464646;
@@ -305,7 +305,7 @@ font-size: 20px;
   
  .top-todo-edit-form-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0px;
   overflow: scroll;
   background-color: #464646;
@@ -334,7 +334,7 @@ font-size: 20px;
 
 .top-user-show-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 0px;
   overflow: scroll;
   background-color: white;

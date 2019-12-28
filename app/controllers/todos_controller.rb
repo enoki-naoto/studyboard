@@ -6,10 +6,10 @@ class TodosController < ApplicationController
   end
 
   def create
-    todo = Todo.new(todo_params)
-    todo.user_id = current_user.id
-    if todo.save
-      redirect_to plan_path(id: todo.plan_id), success: 'todoを作成しました'
+    @todo = Todo.new(todo_params)
+    @todo.user_id = current_user.id
+    if @todo.save
+      redirect_to plan_path(id: @todo.plan_id), success: 'todoを作成しました'
     else
       flash.now[:danger] = 'todoの作成に失敗しました'
       render 'new'

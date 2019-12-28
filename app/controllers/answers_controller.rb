@@ -12,6 +12,7 @@ class AnswersController < ApplicationController
       redirect_to category_question_path(category_id: @question.category_id,id: @question.id),success: '回答を投稿しました'
     else
       flash.now[:denger] = '回答の投稿に失敗しました'
+      @category = @question.category
       render 'new'
     end
   end

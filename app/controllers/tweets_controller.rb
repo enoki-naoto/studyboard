@@ -10,11 +10,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.new(tweet_params)
-    if tweet.save
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
       redirect_to tweets_path,success: '発言しました'
     else
       flash.now[:denger]= '発言に失敗しました'
+      @category = Category.all
       render 'new'
     end
   end

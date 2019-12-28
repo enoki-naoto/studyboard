@@ -43,7 +43,7 @@
       <% if created_answer?%>
       <div class="col-md-12 text-left">
         <h3>
-          <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_question.category_id,question_id: current_question.id),class: 'btn-black'%>
+          <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_answer.question.category_id,question_id: current_answer.question_id),class: 'btn-black'%>
         </h3>   
       <% else %>
         <h3>質問掲示板へ投稿すれば、回答をここで確認できるよ！</h3>

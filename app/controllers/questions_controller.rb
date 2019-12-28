@@ -5,12 +5,13 @@ class QuestionsController < ApplicationController
   end
   
   def create
-    question = Question.new(question_params)
-    question.user_id = current_user.id
-    if question.save
+    @question = Question.new(question_params)
+    @question.user_id = current_user.id
+    if @question.save
       redirect_to category_questions_path(params[:category_id]),success: '質問を投稿しました'
     else
       flash.now[:denger] = '質問の投稿に失敗しました'
+      @category = @question.category
       render 'new'
     end
   end
