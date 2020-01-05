@@ -27,10 +27,12 @@ h1, h2 {
 
 .top-hero-container {
   padding-top: 220px; }
-  .top-hero-container h1 {
+  
+.top-hero-container h1 {
     font-size: 56px;
     margin-bottom: 20px; }
-  .top-hero-container h2 {
+    
+.top-hero-container h2 {
     margin-bottom: 60px; }
 
 form-control {

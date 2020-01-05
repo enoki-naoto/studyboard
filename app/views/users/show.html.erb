@@ -35,31 +35,37 @@
         <h3>
           <%= link_to '投稿した質問',search_category_questions_path(category_id: current_question.category_id),class: 'btn-black'%>
         </h3>
-      <% else %>
-        <h3>質問掲示板へ投稿すれば、質問をここで確認できるよ！</h3>
-      <% end %>
       </div>
+      <% else %>
+      <div class="col-md-12 text-left">
+        <h3>質問掲示板へ投稿すれば、質問をここで確認できるよ！</h3>
+      </div>
+      <% end %>
       
       <% if created_answer?%>
       <div class="col-md-12 text-left">
         <h3>
           <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_answer.question.category_id,question_id: current_answer.question_id),class: 'btn-black'%>
-        </h3>   
-      <% else %>
-        <h3>質問掲示板へ投稿すれば、回答をここで確認できるよ！</h3>
-      <% end %>
+        </h3>
       </div>
-      
+      <% else %>
+      <div class="col-md-12 text-left">
+        <h3>質問掲示板へ投稿すれば、回答をここで確認できるよ！</h3>
+      </div>
+      <% end %>
+    
       <% if created_tweet?%>
       <div class="col-md-12 text-left myTweetList">
         <h3>
           <%= link_to '投稿したツイート',search_tweets_path(user_id: current_user.id),class: 'btn-black'%>
         </h3>
-      <% else %>
-        <h3>自分の投稿したツイートをここで確認できるよ！</h3>
-      <% end %>
       </div>
-      
+      <% else %>
+      <div class="col-md-12 text-left myTweetList">
+        <h3>ツイートを投稿すれば、自分の投稿したツイートをここで確認できるよ！</h3>
+      </div>
+      <% end %>
+  
       <div class="col-md-12 text-left">
         <h3>ツイート　〜自由に発言しよう！〜</h3>
       </div>
