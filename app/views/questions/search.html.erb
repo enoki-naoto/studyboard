@@ -4,17 +4,18 @@
       <div class="col-md-offset-3 col-md-6 text-center questionMylist">
         <h1>質問一覧</h1>
       </div>
-        <% @questions.each do|question| %>
-          <div class="col-md-12 text-left">
-            <h3>題名：<%= question.title %></h3>
-            <h3>質問内容</h3>
-              <p>
-                &nbsp;&nbsp;<%= question.content%>&nbsp;<%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
-                <%#= link_to '削除',category_question_path(category_id: question.category_id,id: question.id),method: :delete %>
-              </p>
-          </div>
+      <% @questions.each do|question| %>
+        <div class="col-md-12 text-left">
+          <h3>題名：<%= question.title %></h3>
+          <h3>質問内容</h3>
+          <p>
+            &nbsp;&nbsp;<%= question.content%>&nbsp;
+            &nbsp;<%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
+            <%#= link_to '削除',category_question_path(category_id: question.category_id,id: question.id),method: :delete %>
+          </p>
           <br>
-        <% end %>
+        </div>
+      <% end %>
       </div>
     </div>
   </div>

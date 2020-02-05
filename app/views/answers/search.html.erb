@@ -5,17 +5,18 @@
         <h1>回答一覧</h1>
       </div>
       <% @answers.each do |answer| %>
-      <div class="col-md-12 text-left">
-        <h2>題　名：<%= answer.question.title %></h2>
-        <h2>内　容</h2>
-        <p><%= answer.question.content%></p>
-        <h2>回　答</h2>
-        <%= answer.ans %>
-        <%= link_to '削除',category_question_answer_path(category_id: answer.question.category_id,question_id: answer.question_id,id: answer.id),method: :delete %>
-        <br>
-        <br>
-      </div>
-    <% end %>
+        <div class="col-md-12 text-left">
+          <h3>題　名：<%= answer.question.title %></h3>
+          <h3>内　容</h3>
+          <p>&nbsp;&nbsp;<%= answer.question.content%></p>
+          <h3>回　答</h3>
+          <p>
+            &nbsp;&nbsp;<%= answer.ans %>
+            &nbsp;<%= link_to '削除',category_question_answer_path(category_id: answer.question.category_id,question_id: answer.question_id,id: answer.id),method: :delete %>
+          </p>
+          <br>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
