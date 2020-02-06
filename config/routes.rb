@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
   
-  resources :categorys, only: [:new,:create,:index] do
+  resources :categorys do
     resources :questions do
       collection do
         get :search
