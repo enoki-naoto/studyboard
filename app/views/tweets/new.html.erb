@@ -1,5 +1,5 @@
-<div class="top-tweet-add-form-wrapper">
-  <div class="container top-tweet-add-form-container">
+<div class="wrapper-stanard">
+  <div class="container container-standard">
     <div class="row">
       <div class="col-md-offset-3 col-md-6 text-center text-white tweetNew">
         <h1>自由に発言しよう！</h1>
@@ -12,7 +12,7 @@
             <%= f.hidden_field :user_id, :value => current_user.id %>
           </div>
             <div class="col-md-offset-4 col-md-4">
-              <%= f.submit '発言する', class: 'btn btn-black btn-block' %>
+              <%= f.submit '発言する', class: 'btn btn-block' %>
             </div>
         <% end %>
       </div>

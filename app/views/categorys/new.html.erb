@@ -1,18 +1,17 @@
-<div class="top-category-add-form-wrapper text-left">
-  <div class="container top-category-add-form-container">
+<div class="wrapper-stanard text-left">
+  <div class="container container-standard">
     <div class="row">
         <%= form_for @category,url:categorys_path do |f| %>
         <div class="col-md-6 col-md-offset-3">
           <div class="form-group text-white">
-            <%= f.label "学習カテゴリー作成",class:'categoryCreate' %>
+            <%= f.label "学習カテゴリー作成",class:'margin20' %>
             <%= f.text_area :name, class: 'form-control' %>
           </div>
         </div>
         <div class="col-md-offset-5 col-md-2">  
-            <%= f.submit '作成する', class: 'btn btn-black btn-block' %>
+            <%= f.submit '作成する', class: 'btn btn-block' %>
         </div>
         <% end %>
-      
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="top-user-show-wrapper">
-  <div class="container user-show-container">
+  <div class="container-standard">
     <div class="row">
       <div class="col-md-12 text-center">
         <h1>マイページ</h1>
@@ -33,7 +33,7 @@
       <% if created_question?%>
       <div class="col-md-12 text-left">
         <h3>
-          <%= link_to '投稿した質問',search_category_questions_path(category_id: current_question.category_id),class: 'btn-black'%>
+          <%= link_to '投稿した質問',search_category_questions_path(category_id: current_question.category_id) %>
         </h3>
       </div>
       <% else %>
@@ -45,7 +45,7 @@
       <% if created_answer?%>
       <div class="col-md-12 text-left">
         <h3>
-          <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_answer.question.category_id,question_id: current_answer.question_id),class: 'btn-black'%>
+          <%= link_to '投稿した回答',search_category_question_answers_path(category_id: current_answer.question.category_id,question_id: current_answer.question_id) %>
         </h3>
       </div>
       <% else %>
@@ -55,13 +55,13 @@
       <% end %>
     
       <% if created_tweet?%>
-      <div class="col-md-12 text-left myTweetList">
+      <div class="col-md-12 text-left margin20">
         <h3>
-          <%= link_to '投稿したツイート',search_tweets_path(user_id: current_user.id),class: 'btn-black'%>
+          <%= link_to '投稿したツイート',search_tweets_path(user_id: current_user.id) %>
         </h3>
       </div>
       <% else %>
-      <div class="col-md-12 text-left myTweetList">
+      <div class="col-md-12 text-left margin20">
         <h3>ツイートを投稿すれば、自分の投稿したツイートをここで確認できるよ！</h3>
       </div>
       <% end %>

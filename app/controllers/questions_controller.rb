@@ -30,15 +30,15 @@ class QuestionsController < ApplicationController
   
   def edit
     @question = Question.find(params[:id])
-    @category = Category.find(params[:category_id])
+    # @category = Category.find(params[:category_id])
   end
   
   def update
-    question = Question.find(params[:id])
-    question.title = params[:question][:title]
-    question.content = params[:question][:content]
-    if question.save
-      redirect_to search_category_questions_path(category_id: question.category_id),success: '質問を更新しました'
+    @question = Question.find(params[:id])
+    @question.title = params[:question][:title]
+    @question.content = params[:question][:content]
+    if @question.save
+      redirect_to search_category_questions_path(category_id: @question.category_id),success: '質問を更新しました'
     else
       flash.now[:denger] = '更新に失敗しました'
       render 'edit'

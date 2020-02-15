@@ -1,7 +1,7 @@
-<div class="top-question-index-wrapper text-white">
-  <div class="container question-index-container">
+<div class="wrapper-stanard text-white">
+  <div class="container container-standard">
     <div class="row">
-      <div class="col-md-offset-3 col-md-6 text-center questionMylist">
+      <div class="col-md-offset-3 col-md-6 text-center margin40">
         <h1>質問一覧</h1>
       </div>
       <% @questions.each do|question| %>
@@ -9,9 +9,8 @@
           <h3>題名：<%= question.title %></h3>
           <h3>質問内容</h3>
           <p>
-            &nbsp;&nbsp;<%= question.content%>&nbsp;
-            &nbsp;<%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
-            <%#= link_to '削除',category_question_path(category_id: question.category_id,id: question.id),method: :delete %>
+            &nbsp;&nbsp;<%= question.content%>
+            &nbsp;&nbsp;<%= link_to '編集',edit_category_question_path(category_id: question.category_id,id: question.id) %>
           </p>
           <br>
         </div>

@@ -1,4 +1,87 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'custom';
 @import 'simple_calendar';
+@import 'users';
+@import 'categorys';
+@import 'answers';
+@import 'pages';
+@import 'plans';
+@import 'questions';
+@import 'sessions';
+@import 'study_times';
+@import 'todos';
+@import 'tweets';
+
+h1, h2 {
+  font-weight: 100;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.btn-white {
+  color: #fff;
+  border: 1px solid #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+.timecolor{
+  color:white;
+}
+
+ul {
+list-style: none;
+}
+  
+.error{
+  font-weight:bold;
+  color:tomato;
+}
+
+.wrapper-stanard {
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 0px;
+  overflow: scroll;
+  background-color: #464646;
+}
+
+.wrapper-padding {
+  width: 100vw;
+  min-height: 100vh;
+  overflow: scroll;
+  background-color: #464646;
+}
+
+.container-standard {
+  padding-top: 150px;
+  font-size: 20px;
+}
+
+.margin20 {
+  margin-bottom:20px;
+}
+
+.margin30 {
+  margin-bottom:30px;
+}
+
+.margin40 {
+  margin-bottom:40px;
+}

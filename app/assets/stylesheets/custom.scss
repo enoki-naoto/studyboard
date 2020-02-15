@@ -1,355 +1,42 @@
-h1, h2 {
-  font-weight: 100;
-}
+// h1, h2 {
+//   font-weight: 100;
+// }
 
-.text-white {
-  color: #fff;
-}
+// .text-white {
+//   color: #fff;
+// }
 
-.btn-white {
-  color: #fff;
-  border: 1px solid #fff;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin-bottom:15px;
-  font-size: 20px;
-  background-color: rgba(0,0,0,0.0);
+// .btn-white {
+//   color: #fff;
+//   border: 1px solid #fff;
+//   padding-top: 15px;
+//   padding-bottom: 15px;
+//   margin-bottom:15px;
+//   font-size: 20px;
+//   background-color: rgba(0,0,0,0.0);
 
-  &:hover {
-    color: #fff;
-  }
-}
+//   &:hover {
+//     color: #fff;
+//   }
+// }
 
-.top-hero-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  background-image: url('bg-top.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
-}
+// .alert {
+//   margin-bottom: 0px;
+//   position: fixed;
+//   width: 100%;
+//   z-index: 10000;
+// }
 
-.top-hero-container {
-  padding-top: 220px;
-  h1 {
-    font-size: 56px;
-    margin-bottom: 20px;
-  }
+// .timecolor{
+//   color:white;
+// }
 
-  h2 {
-    margin-bottom: 60px;
-  }
-}
-
-form-control {
-  height: 45px;
-}
-
-.users-new-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  background-image: image-url('bg-top.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: blue;
-
-  .users-new-container {
-    padding-top: 220px;
-
-    .form-group {
-      margin-bottom: 20px;
+// ul {
+// list-style: none;
+// }
   
-    }
-  }
-}
+// .error{
+//   font-weight:bold;
+//   color:tomato;
+// }
 
-.alert {
-  margin-bottom: 0px;
-  position: fixed;
-  width: 100%;
-  z-index: 10000;
-}
-
-.timecolor{
-  color:white;
-}
-
-.top-category-add-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 0px;
-  overflow: scroll;
-  background-color: #464646;
-}
-
-.top-category-add-container{
-  padding-top: 150px;
-  font-size: 20px;
-  }
-  
-  .top-category-add-form-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 0px;
-  overflow: scroll;
-  background-color: #464646;
-}
-
-.top-category-add-form-container{
-  padding-top: 150px;
-  font-size: 20px;
-  }
-  
-.top-user-add-form-wrapper {
-width: 100vw;
-min-height: 100vh;
-padding-top: 0px;
-overflow: scroll;
-background-color: #464646;
-}
-
-.top-user-add-form-container {
-padding-top: 150px;
-font-size: 20px;
-}
-
-.top-session-form-wrapper {
-width: 100vw;
-min-height: 100vh;
-padding-top: 0px;
-overflow: scroll;
-background-color: #464646;
-}
-
-.top-session-form-container {
-padding-top: 150px;
-font-size: 20px;
-}
-
-.top-category-index-wrapper {
-width: 100vw;
-height: 100vh;
-padding-top: 0px;
-overflow: scroll;
-background-color: #464646;
-}
-
-.category-index-container {
-padding-top: 150px;
-font-size: 20px;
-}
-
-ul {
-list-style: none;
-}
-
-.categoryName{
-margin-bottom:40px;
-}
-
-.categoryCreate{
-margin-bottom:20px; 
-}
-
-.top-question-index-wrapper {
-width: 100vw;
-min-height: 100vh;
-padding-top: 0px;
-overflow: scroll;
-background-color: #464646;
-}
-
-.question-index-container {
-padding-top: 150px;
-font-size: 20px;
-}
-
-.top-question-show-wrapper {
-width: 100vw;
-min-height: 100vh;
-overflow: scroll;
-background-color: #464646;
-}
-
-.question-show-container {
-padding-top: 150px;
-font-size: 20px;
-}
-
-.questionShow{
-margin-bottom:40px;
-}
-
-.questionContent{
-margin-bottom:40px;
-}
-
-.answerList{
-margin-bottom:20px;
-}
-
-.categoryTitle{
-margin-bottom:20px;
-}
-
-
-.top-tweet-index-wrapper {
-width: 100vw;
-min-height: 100vh;
-padding-top: 0px;
-overflow: scroll;
-background-color: #464646;
-}
-
-.tweet-index-container {
-padding-top: 150px;
-font-size: 20px;
-}
-
-.tweetLogin{
-margin-top:40px;
-}
-
-.tweetNew{
-margin-bottom:30px;
-margin-top:20px;
-}
-
-.categorySearch{
-margin-top:40px;
-}
-
-.searchTweet{
-  margin-bottom:15px;
-}
-
-.noLog{
-  margin-bottom:25px;
-}
-
- .top-tweet-add-form-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 0px;
-  overflow: scroll;
-  background-color: #464646;
-}
-
-.top-tweet-add-form-container{
-  padding-top: 150px;
-  font-size: 20px;
-  }
-  
-.tweetNew{
-  margin-bottom:20px;
-}
-
-.tweetSearch{
-  margin-top:30px;
-}
-
-.planBotton{
-  margin-top:20px;
-}
-
-.nowAchieve{
-  border: 1px solid #fff;
-}
-
-.top-plan-show-wrapper {
-width: 100vw;
-min-height: 100vh;
-padding-top: 0px;
-overflow: scroll;
-background-color: #464646;
-}
-
-.plan-show-container {
-padding-top: 150px;
-font-size: 20px;
-}
-
-.top-plan-add-form-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 0px;
-  overflow: scroll;
-  background-color: #464646;
-}
-
-.top-plan-add-form-container{
-  padding-top: 150px;
-  font-size: 20px;
-  }
-  
-  .top-study-add-form-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 0px;
-  overflow: scroll;
-  background-color: #464646;
-}
-
-.top-study-add-form-container{
-  padding-top: 150px;
-  font-size: 20px;
-  }
-  
-  .studyStart{
-    padding-bottom:20px;
-  }
-  
- .top-todo-edit-form-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 0px;
-  overflow: scroll;
-  background-color: #464646;
-}
-
-.top-todo-edit-form-container{
-  padding-top: 150px;
-  font-size: 20px;
-  }
-  
-.listRange{
-  margin-bottom:20px;
-}
-
-.questionTitle{
-  margin-bottom:20px;
-}
-
-.questionMylist{
-  margin-bottom:30px;
-}
-
-.answerMylist{
-  margin-bottom:30px;
-}
-
-.top-user-show-wrapper {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 0px;
-  overflow: scroll;
-  background-color: white;
-}
-
-.user-show-container{
-  padding-top: 150px;
-  font-size: 20px;
-  }
-  
-.myTweetList{
-  margin-bottom:20px;
-}
-
-.error{
-  font-weight:bold;
-  color:tomato;
-}

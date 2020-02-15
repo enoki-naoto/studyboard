@@ -1,11 +1,11 @@
-<div class="top-todo-edit-form-wrapper">
-  <div class="container top-todo-edit-form-container">
+<div class="wrapper-stanard">
+  <div class="container container-standard">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <%= form_for [@plan,@todo], url: plan_todo_path(plan_id: @todo.plan_id,id: @todo.id) , method: :patch do |f| %>
             <%= f.label "todoリストの編集",class: 'text-white' %>
-            <%= f.text_area :list, class: 'form-control listRange' %>
-            <%= f.submit 'todo 更新', class: 'btn btn-black btn-block' %>
+            <%= f.text_area :list, class: 'form-control margin20' %>
+            <%= f.submit 'todo 更新', class: 'btn btn-block' %>
         <% end %>
       </div>>
     </div>

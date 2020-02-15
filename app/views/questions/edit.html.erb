@@ -1,16 +1,16 @@
-<div class="top-category-add-form-wrapper text-left">
-  <div class="container top-category-add-form-container">
+<div class="wrapper-stanard text-left">
+  <div class="container container-standard">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <%= form_for [@category,@question], url: category_question_path(@category,@question) , method: :patch do |f| %>
+        <%= form_for @question, url: category_question_path(category_id: @question.category_id, id: @question.id) , method: :patch do |f| %>
           <div class="form-group text-white">
             <%= f.label "題名" %>
-            <%= f.text_area :title, class: 'form-control input-sm questionTitle'%>
+            <%= f.text_area :title, class: 'form-control input-sm margin20'%>
             <%= f.label "内容" %>
             <%= f.text_area :content, class: 'form-control input-lg' %>
           </div>
           <div class="col-md-4 col-md-offset-4">
-            <%= f.submit '更新', class: 'btn btn-black btn-block' %>
+            <%= f.submit '更新', class: 'btn btn-block' %>
           </div>
         <% end %>
       </div>
