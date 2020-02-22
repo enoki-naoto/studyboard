@@ -3,4 +3,5 @@ class Category < ApplicationRecord
   
   has_many :questions, dependent: :destroy
   has_many :tweets, dependent: :destroy
+  has_many :qs, dependent: :destroy
 end

@@ -1,0 +1,12 @@
+<div class="wrapper-stanard text-center">
+  <div class="container container-standard">
+    <div class="row">
+      <h1 class="text-white margin40">クイズ</h1>
+      <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+        <% @qs.each do |q| %>
+          <%= link_to q.qtitle, '#',class: 'btn btn-block btn-white' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

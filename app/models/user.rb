@@ -11,6 +11,7 @@ class User < ApplicationRecord
   #has_many :plan_todos, through: :plans, source: 'todo'
   has_many :tweets
   has_many :study_times
+  has_many :qs
 
   has_secure_password
 end

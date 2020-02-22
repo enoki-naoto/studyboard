@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   end
   
   resources :categorys do
+    collection do
+      get :qindex
+    end
     resources :questions do
       collection do
         get :search
@@ -36,6 +39,11 @@ Rails.application.routes.draw do
   resources :study_times,only: [:new,:create,:show] do
     member do
       get :newfinish
+    end
+  end
+  
+  resources :categorys do
+    resources :qs do
     end
   end
   

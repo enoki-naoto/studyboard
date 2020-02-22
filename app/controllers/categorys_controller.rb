@@ -35,6 +35,10 @@ class CategorysController < ApplicationController
     redirect_to categorys_path,success: 'カテゴリを削除しました'
   end
   
+  def qindex
+    @categorys = Category.all
+  end
+  
   private
   def category_params
     params.require(:category).permit(:name)

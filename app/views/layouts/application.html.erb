@@ -68,9 +68,12 @@
             <%= link_to 'ログアウト', logout_path, method: :delete %>
           </li>
           <li>
-            <%= link_to '管理者ページ', administrator_users_path%>
+            <%= link_to '管理者ページ', administrator_users_path %>
           </li>
           <% else %>
+          <li>
+            <%= link_to 'クイズ', qindex_categorys_path %>
+          </li>
           <li>
             <%= link_to '新規会員登録',new_user_path %>
           </li>
