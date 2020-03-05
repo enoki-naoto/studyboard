@@ -2,17 +2,23 @@
   <div class="container container-standard">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <%= form_for @q do |f| %>
+        <%= form_for @q, url: category_qs_path(category_id: @category.id), method: :post do |f| %>
           <div class="form-group">
             <% if logged_in? %>
               <%= f.label "題名", class: 'text-white' %>
-              <%= f.text_field :title, class: 'form-control input-sm margin20' %>
-              <%= f.label "内容", class: 'text-white' %>
-              <%= f.text_area :content, class: 'form-control input-lg' %>
+              <%= f.text_field :qtitle, class: 'form-control input-sm margin20' %>
+              <%= f.label "問題文", class: 'text-white' %>
+              <%= f.text_area qchoice[0][:qsentence], class: 'form-control input-lg' %>
+              <%= f.label "選択肢1（正解の選択肢を入力）", class: 'text-white' %>
+              <%= f.text_area 'qchoice[choice]', class: 'form-control input-lg' %>
+              <%= f.label "選択肢2（ハズレの選択肢を入力）", class: 'text-white' %>
+              <%= f.text_area 'qchoice[choice]', class: 'form-control input-lg' %>
+              <%= f.label "選択肢3（ハズレの選択肢を入力）", class: 'text-white' %>
+              <%= f.text_area 'qchoice[choice]', class: 'form-control input-lg' %>
               <%= f.hidden_field :category_id, :value => @category.id %>
           </div>
           <div class="col-md-offset-4 col-md-4">
-              <%= f.submit '投稿', class: 'btn btn-block' %>
+              <%= f.submit '作成', class: 'btn btn-block' %>
           </div>
             <% else %>
           <div class="col-md-12 ">

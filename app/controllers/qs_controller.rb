@@ -5,10 +5,8 @@ class QsController < ApplicationController
   end
   
   def new
-    
     @q = Q.new
     @category = Category.find(params[:category_id])
-    
   end
   
 end
