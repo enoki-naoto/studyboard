@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   
   resources :categorys do
     resources :qs do
+      resources :qcontents do
+      end
     end
   end
   

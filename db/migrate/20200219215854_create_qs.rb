@@ -4,8 +4,6 @@ class CreateQs < ActiveRecord::Migration[5.2]
       t.integer :category_id
       t.integer :user_id
       t.string :qtitle
-      t.string :qchoice
-
       t.timestamps
     end
   end

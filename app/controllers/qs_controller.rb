@@ -9,4 +9,20 @@ class QsController < ApplicationController
     @category = Category.find(params[:category_id])
   end
   
+  def create
+    @q = Q.new(q_params)
+    if @q.save
+      redirect_to new_category_q_qcontent_path(category_id: @q.category_id, q_id: @q.id), success: '続いてクイズの内容の作成をしてください'
+    else
+      flash.now[:danger] = "クイズの作成に失敗しました"
+      @category = @q.category
+      reder 'new'
+    end
+  end
+  
+  private
+  def q_params
+    params.require(:q).permit(:category_id, :user_id, :qtitle)
+  end
+  
 end
