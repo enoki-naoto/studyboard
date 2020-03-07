@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'plans/:plan_id/todos', to: 'todos#new' #todoの新規作成を失敗した直後にページを更新すると、ルーティングエラーが発生するので、その対策です。
   get 'categorys/:category_id/questions/:question_id/answers', to: 'answers#new' #上記と同じくルーティングエラー対策です。
   get 'users', to: 'users#new' #上記と同じくルーティングエラー対策です。
+  get 'categorys/:category_id/qs/:q_id/qcontents', to: 'qcontents#new' #上記と同じくルーティングエラー対策です。
 
   resources :users, only: [:new,:create,:show]
   resources :plans, only: [:new,:create,:show,:update] do

@@ -8,9 +8,10 @@
               <%= f.label "題名", class: 'text-white' %>
               <%= f.text_field :qtitle, class: 'form-control input-sm margin20' %>
               <%= f.hidden_field :category_id, :value => @category.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
           </div>
           <div class="col-md-offset-4 col-md-4">
-              <%= f.submit '問題文と選択肢の作成', class: 'btn btn-block' %>
+              <%= f.submit '問題文と選択肢の作成へ進む', class: 'btn btn-block' %>
           </div>
             <% else %>
           <div class="col-md-12 ">

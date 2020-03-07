@@ -16,7 +16,7 @@ class QsController < ApplicationController
     else
       flash.now[:danger] = "クイズの作成に失敗しました"
       @category = @q.category
-      reder 'new'
+      render 'new'
     end
   end
   

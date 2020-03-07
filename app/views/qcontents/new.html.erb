@@ -1,0 +1,27 @@
+<div class="wrapper-stanard text-left">
+  <div class="container container-standard">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for @qcontent, url: category_q_qcontents_path(category_id: @q.category_id, id: @q.id), method: :post do |f| %>
+          <div class="form-group">
+            <%= f.label "問題文", class: 'text-white' %>
+            <%= f.text_field :qsentence, class: 'form-control input-sm margin20' %>
+            <%= f.label "選択肢１（正解の選択肢を入力してください）", class:'text-white' %>
+            <%= f.text_field :choice1, class: 'form-control input-lg margin20' %>
+            <%= f.label "選択肢2（不正解の選択肢を入力してください）", class:'text-white' %>
+            <%= f.text_field :choice2, class: 'form-control input-lg margin20' %>
+            <%= f.label "選択肢3（不正解の選択肢を入力してください）", class:'text-white' %>
+            <%= f.text_field :choice3, class: 'form-control input-lg margin20' %>
+            <%= f.hidden_field :q_id, :value => @q.id %>
+          </div>
+          <div class="col-md-offset-4 col-md-4 margin20">
+            <%= f.submit 'クイズの作成を完了する', class: 'btn btn-block' %>
+          </div>
+          <div class="col-md-offset-4 col-md-4">
+            <%= f.submit '更にクイズを作成する', name: 'add_quiz', class: 'btn btn-block' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
