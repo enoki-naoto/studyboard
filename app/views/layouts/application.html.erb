@@ -5,9 +5,10 @@
     <title>Studyboard</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= include_gon(:init => true) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--ここでjavascript読見込むとgonが使えない-->
+    <!--<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>-->
   </head>
 
   <body>
@@ -88,6 +89,8 @@
     
     <%= yield %>
     
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script>
       $(function(){
         $(".alert").fadeOut(2500);

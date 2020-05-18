@@ -20,6 +20,12 @@ class QsController < ApplicationController
     end
   end
   
+  def show
+    @q = Q.find(params[:id])
+    @qcontents = @q.qcontents
+    gon.qcontents = @qcontents
+  end
+  
   private
   def q_params
     params.require(:q).permit(:category_id, :user_id, :qtitle)
