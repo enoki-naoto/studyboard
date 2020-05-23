@@ -89,3 +89,30 @@ list-style: none;
 .margin40 {
   margin-bottom:40px;
 }
+
+#choices > li {
+  margin:20px;
+  border:2px solid #111111;
+  cursor:pointer;
+  box-shadow:2px 5px 0 #000000;
+}
+
+#choices > li:hover {
+  background:#000080;
+}
+
+#next {
+  border:2px solid #111111;
+  cursor:pointer;
+  text-align:center;
+  box-shadow:2px 5px 0 #000000;
+}
+
+#next:hover {
+  background:#000080;
+}
+
+.disabled {
+  background:#C0C0C0;
+  opacity:0.7;
+}
