@@ -72,6 +72,7 @@ list-style: none;
 .container-standard {
   padding-top: 150px;
   font-size: 20px;
+  position: relative;
 }
 
 .margin10 {
@@ -97,8 +98,27 @@ list-style: none;
   box-shadow:2px 5px 0 #000000;
 }
 
+#choices > li.correct {
+  background:#003300;
+  font-weight:bold;
+}
+
+#choices > li.correct:after {
+  content: '       ...正解です！';
+}
+
+#choices > li.wrong {
+  background:#AA0000;
+  font-weight:bold;
+}
+
+#choices > li.wrong:after {
+  content: '       ...不正解です！';
+}
+
 #choices > li:hover {
-  background:#000080;
+  background:white;
+  color:black;
 }
 
 #next {
@@ -109,10 +129,30 @@ list-style: none;
 }
 
 #next:hover {
-  background:#000080;
+  background:white;
+  color:black;
 }
 
 .disabled {
   background:#C0C0C0;
   opacity:0.7;
+}
+
+#resultNumber {
+  position: absolute;
+  width: 320px;
+  background: #C0C0C0;
+  padding: 20px;
+  box-shadow: 4px 5px 0 #000000;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 16px;
+  text-align: center;
+  transition: 1s;
+}
+
+#resultNumber.hidden {
+  transform: translateY(-500px);
 }
