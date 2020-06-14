@@ -16,9 +16,7 @@
   let answered;
   let result = 0;
   let quizChoices = [];
-  quizChoices.push(quiz[currentNum].choice1);
-  quizChoices.push(quiz[currentNum].choice2);
-  quizChoices.push(quiz[currentNum].choice3);
+  
   
   
   
@@ -44,13 +42,15 @@
     } else {
       li.classList.add('wrong');
     }
-    
     btn.classList.remove('disabled');
   }
   
   function quizSet() {
-    answered = false;
     
+    answered = false;
+    quizChoices.push(quiz[currentNum].choice1);
+    quizChoices.push(quiz[currentNum].choice2);
+    quizChoices.push(quiz[currentNum].choice3);
     quest.textContent = quiz[currentNum].qsentence;
     
     while(choices.firstChild){
@@ -86,6 +86,8 @@
       resultNumber.classList.remove('hidden');
     } else {
        currentNum++;
+       quizChoices = [];
+       
     quizSet();
     }
    
